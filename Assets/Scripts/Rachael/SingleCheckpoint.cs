@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Himanshu;
+
+/// <summary>
+/// Rachael Colaco
+/// </summary>
 public class SingleCheckpoint : MonoBehaviour
 {
     private TrackCheckpoints trackCheckpoints;
