@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Rachael Colaco
+/// </summary>
 public class TrackCheckpoints : MonoBehaviour
 {
     private int nextIndexCheckpoint;
@@ -23,12 +25,17 @@ public class TrackCheckpoints : MonoBehaviour
 
         nextIndexCheckpoint = 0;
     }
+
+    //checks for each checkpoint and its index
     public void PlayerThroughCheckpoint(SingleCheckpoint singleCheckpoint)
     {
+        //checks if the next checkpoint index is the same within the list of checkpoints
         if(checkpointList.IndexOf(singleCheckpoint) == nextIndexCheckpoint)
         {
             Debug.Log("Correct Checkpoint");
             nextIndexCheckpoint = (nextIndexCheckpoint +1) % checkpointList.Count;
+
+            //when the player goes to all the checkpoints
             if(nextIndexCheckpoint == 0)
             {
                 laps++;
