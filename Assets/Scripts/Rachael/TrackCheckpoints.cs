@@ -19,10 +19,16 @@ public class TrackCheckpoints : MonoBehaviour
             SingleCheckpoint singleCheckpoint = singleCheckpointTransform.GetComponent<SingleCheckpoint>();
             
             singleCheckpoint.SetTrackCheckpoints(this);
-
+            singleCheckpoint.gameObject.SetActive(false);
+            
             checkpointList.Add(singleCheckpoint);
         }
 
+        for (int i = 0; i < 2; i++)
+        {
+            checkpointList[i].gameObject.SetActive(true);
+        }
+        
         nextIndexCheckpoint = 0;
     }
 
@@ -33,6 +39,7 @@ public class TrackCheckpoints : MonoBehaviour
         if(checkpointList.IndexOf(singleCheckpoint) == nextIndexCheckpoint)
         {
             Debug.Log("Correct Checkpoint");
+            checkpointList[nextIndexCheckpoint].gameObject.SetActive(false);
             nextIndexCheckpoint = (nextIndexCheckpoint +1) % checkpointList.Count;
 
             //when the player goes to all the checkpoints
@@ -40,6 +47,7 @@ public class TrackCheckpoints : MonoBehaviour
             {
                 laps++;
             }
+            checkpointList[(nextIndexCheckpoint+1) % checkpointList.Count].gameObject.SetActive(true);
         }
         else
         {

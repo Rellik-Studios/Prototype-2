@@ -18,6 +18,8 @@ public class SingleCheckpoint : MonoBehaviour
             trackCheckpoints.PlayerThroughCheckpoint(this);
         }
     }
+    
+    
 
     //calls the manager into this script
     public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints)
