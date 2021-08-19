@@ -15,7 +15,10 @@ public class SingleCheckpoint : MonoBehaviour
         if(other.TryGetComponent<PlayerInput>(out PlayerInput _playerInput))
         {
             //calls the function to indicate this checkpoint has been through.
-            trackCheckpoints.PlayerThroughCheckpoint(this);
+            //trackCheckpoints.PlayerThroughCheckpoint(this);
+
+            //calls function to all cars
+            trackCheckpoints.CarThroughCheckpoint(this, other.transform);
         }
     }
     
