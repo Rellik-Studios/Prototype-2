@@ -18,6 +18,7 @@ namespace Himanshu
         public float driveForce = 17f;
         public float slowingVelFactor = .99f;
         public float brakingVelFactor = .95f;
+        public float handBrakeVelFactor = .80f;
         public float angleOfRoll = 30f;
 
         [Header("Hover")] 
@@ -136,16 +137,24 @@ namespace Himanshu
 
             if (!isOnGround) return;
 
+            if(m_playerInput.handBrake)
+            {   
+                m_rigidBody.velocity *= handBrakeVelFactor;
+            }
+
             if (m_playerInput.brake > 0f)
             {
                 m_rigidBody.velocity *= brakingVelFactor;
             }
 
-            float propulsion = driveForce * m_playerInput.throttle;
-            //Debug.Log(m_playerInput.throttle);
-            if(speed < terminalVelocity)
-                m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
-            
+            else
+            {
+                float propulsion = driveForce * m_playerInput.throttle;
+                //Debug.Log(m_playerInput.throttle);
+                if(speed < terminalVelocity)
+                    m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+
+            }
         }
     }
 }
