@@ -8,6 +8,10 @@ namespace Himanshu
     {
         private float m_throttle;
         private float m_movement;
+
+        [SerializeField] private Transform m_carTransform;
+        private Vector3 position;
+        private Quaternion rotation;
         
         [SerializeField] private int playerIndex;
 
@@ -21,12 +25,16 @@ namespace Himanshu
         public float brake => m_throttle < 0 ? -m_throttle : 0;
 
 
+
         private void Start()
         {
             if (playerIndex == 0)
             {
                 throw new Exception($"{name} is set to playerIndex 0");
             }
+
+            position = m_carTransform.position;
+            rotation = m_carTransform.rotation;
         }
 
         void Update()
@@ -35,6 +43,19 @@ namespace Himanshu
             //Debug.Log($"Throttle_P{playerIndex}");
 
             m_movement = Input.GetAxis($"Horizontal_P{playerIndex}");
+
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log("RESET");
+                gameObject.transform.position = position;
+                gameObject.transform.rotation = rotation;
+            }
+
+        }
+        public void SetRespawnPoint(Transform checkpoint)
+        {
+            position = checkpoint.position;
+            rotation = checkpoint.rotation;
         }
     }
 }
