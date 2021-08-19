@@ -173,10 +173,10 @@ InputManager:
     positiveButton: d
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 3
-    dead: 0.0001
+    gravity: 1
+    dead: 0.1
     sensitivity: 1
-    snap: 1
+    snap: 0
     invert: 0
     type: 0
     axis: 1
@@ -205,10 +205,10 @@ InputManager:
     positiveButton: w
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 3
-    dead: 0.0001
+    gravity: 1
+    dead: 0.1
     sensitivity: 1
-    snap: 1
+    snap: 0
     invert: 0
     type: 0
     axis: 1
