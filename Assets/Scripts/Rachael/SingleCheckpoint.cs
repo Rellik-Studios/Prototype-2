@@ -8,14 +8,18 @@ using Himanshu;
 /// </summary>
 public class SingleCheckpoint : MonoBehaviour
 {
-    private TrackCheckpoints trackCheckpoints;
+    private TrackCheckpoints m_trackCheckpoints;
     private void OnTriggerEnter(Collider other)
     {
         //when the car enters a checkpoint
-        if(other.TryGetComponent<PlayerInput>(out PlayerInput _playerInput))
+        if(other.TryGetComponent<PlayerRespawn>(out PlayerRespawn _player))
         {
             //calls the function to indicate this checkpoint has been through.
-            trackCheckpoints.PlayerThroughCheckpoint(this);
+            m_trackCheckpoints.PlayerThroughCheckpoint(this);
+
+            _player.SetRespawnPoint(this.transform);
+            //calls function to all cars
+            //m_trackCheckpoints.CarThroughCheckpoint(this, other.transform);
         }
     }
     
@@ -24,6 +28,6 @@ public class SingleCheckpoint : MonoBehaviour
     //calls the manager into this script
     public void SetTrackCheckpoints(TrackCheckpoints trackCheckpoints)
     {
-        this.trackCheckpoints = trackCheckpoints;
+        this.m_trackCheckpoints = trackCheckpoints;
     }
 }
