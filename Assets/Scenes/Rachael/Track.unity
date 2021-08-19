@@ -879,6 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52814c0253e28094c9ca54e51ebc574a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carTransformList:
+  - {fileID: 108501494}
 --- !u!1001 &997235825
 PrefabInstance:
   m_ObjectHideFlags: 0
