@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PIDController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PIDController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/Track.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/Track.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +35,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/SingleCheckpoint.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PIDController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
     </changedPaths>
   </component>
@@ -86,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1629248980452</updated>
       <workItem from="1629248989814" duration="7190000" />
+      <workItem from="1629350589066" duration="3573000" />
     </task>
     <servers />
   </component>
@@ -104,6 +106,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
