@@ -36,7 +36,7 @@ public class TrackCheckpoints : MonoBehaviour
             m_nextIndexCheckpointList.Add(0);
         }
         //-------------------------------------------------
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             m_checkpointList[i].gameObject.SetActive(true);
         }
@@ -62,7 +62,7 @@ public class TrackCheckpoints : MonoBehaviour
                 Debug.Log("lap "+ m_laps.ToString());
 
             }
-            m_checkpointList[(m_nextIndexCheckpoint) % m_checkpointList.Count].gameObject.SetActive(true);
+            m_checkpointList[(m_nextIndexCheckpoint+1) % m_checkpointList.Count].gameObject.SetActive(true);
         }
         else
         {
