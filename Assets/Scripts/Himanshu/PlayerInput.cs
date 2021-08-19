@@ -32,7 +32,7 @@ namespace Himanshu
         void Update()
         {
             m_throttle = Input.GetAxis($"Throttle_P{playerIndex}");
-            Debug.Log($"Throttle_P{playerIndex}");
+            //Debug.Log($"Throttle_P{playerIndex}");
 
             m_movement = Input.GetAxis($"Horizontal_P{playerIndex}");
         }
