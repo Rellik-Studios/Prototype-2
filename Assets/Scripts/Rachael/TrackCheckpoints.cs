@@ -24,7 +24,7 @@ public class TrackCheckpoints : MonoBehaviour
             checkpointList.Add(singleCheckpoint);
         }
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             checkpointList[i].gameObject.SetActive(true);
         }
@@ -46,8 +46,10 @@ public class TrackCheckpoints : MonoBehaviour
             if(nextIndexCheckpoint == 0)
             {
                 laps++;
+                Debug.Log("lap "+ laps.ToString());
+
             }
-            checkpointList[(nextIndexCheckpoint+1) % checkpointList.Count].gameObject.SetActive(true);
+            checkpointList[(nextIndexCheckpoint) % checkpointList.Count].gameObject.SetActive(true);
         }
         else
         {
