@@ -35,7 +35,7 @@ namespace Himanshu
         
         private PlayerInput m_playerInput;
         private Rigidbody m_rigidBody;
-        private float drag;
+        private float drag = 1f;
         private bool isOnGround;
         
         private void Start()
@@ -73,6 +73,7 @@ namespace Himanshu
             RaycastHit hitInfo;
 
             isOnGround = Physics.Raycast(ray, out hitInfo, maxGroundDistance, ground);
+            //var onGround = Physics.Raycast(ray, out hitInfo, 0f, ground);
 
             if (isOnGround)
             {
@@ -85,6 +86,18 @@ namespace Himanshu
                 m_rigidBody.AddForce(force, ForceMode.Acceleration);
                 m_rigidBody.AddForce(gravity, ForceMode.Acceleration);
             }
+            
+            // else if (onGround)
+            // {
+            //     float height = hitInfo.distance;
+            //     groundNormal = hitInfo.normal.normalized;
+            //     float forcePercent = hoverPID.Seek(hoverHeight, height);
+            //
+            //     Vector3 force = groundNormal * hoverForce * forcePercent;
+            //     Vector3 gravity = -groundNormal * hoverGravity * hoverHeight;
+            //     m_rigidBody.velocity = new Vector3(m_rigidBody.velocity.x, 0f, m_rigidBody.velocity.y);
+            //     m_rigidBody.AddForce(force, ForceMode.Acceleration);
+            // }
 
             else
             {
@@ -112,11 +125,11 @@ namespace Himanshu
 
             float sidewaysSpeed = Vector3.Dot(m_rigidBody.velocity, transform.right);
 
-            Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime);
+            Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime / 8f);
 
             m_rigidBody.AddForce(sideFriction, ForceMode.Acceleration);
 
-            if (m_playerInput.throttle < 0f)
+            if (m_playerInput.throttle == 0f)
             {
                 m_rigidBody.velocity *= slowingVelFactor;
             }
@@ -128,9 +141,11 @@ namespace Himanshu
                 m_rigidBody.velocity *= brakingVelFactor;
             }
 
-            float propulsion = driveForce * m_playerInput.throttle - drag * Mathf.Clamp(speed, 0f, terminalVelocity);
-            Debug.Log(m_playerInput.throttle);
-            m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+            float propulsion = driveForce * m_playerInput.throttle;
+            //Debug.Log(m_playerInput.throttle);
+            if(speed < terminalVelocity)
+                m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+            
         }
     }
 }
