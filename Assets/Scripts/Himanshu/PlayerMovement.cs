@@ -87,8 +87,8 @@ namespace Himanshu
                 groundNormal = hitInfo.normal.normalized;
                 float forcePercent = hoverPID.Seek(hoverHeight, height);
 
-                Vector3 force = (reverse? -1: 1) * groundNormal * hoverForce * forcePercent;
-                Vector3 gravity = (reverse? -1: 1) * -groundNormal * hoverGravity * hoverHeight;
+                Vector3 force =  groundNormal * hoverForce * forcePercent;
+                Vector3 gravity =  -groundNormal * hoverGravity * hoverHeight;
                 m_rigidBody.AddForce(force, ForceMode.Acceleration);
                 m_rigidBody.AddForce(gravity, ForceMode.Acceleration);
             }
@@ -128,11 +128,19 @@ namespace Himanshu
         private void CalculatePropulsion()
         {
             float rotationTorque = m_playerInput.horizontal - m_rigidBody.angularVelocity.y;
-            m_rigidBody.AddRelativeTorque(0f, rotationTorque, 0f, ForceMode.VelocityChange);
+            rotationTorque *= reverse ? -1f : 1f;
+            if(rotationTorque < 1f)
+                m_rigidBody.AddTorque(0f, rotationTorque, 0f, ForceMode.VelocityChange);
 
-            float sidewaysSpeed = Vector3.Dot(m_rigidBody.velocity, transform.right);
+            if (m_playerInput.index == 1)
+            {
+                Debug.Log(rotationTorque);
+                Debug.Log(m_playerInput.horizontal);
+            }
 
-            Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime);
+            float sidewaysSpeed = Vector3.Dot(m_rigidBody.velocity, reverse? -transform.right: transform.right);
+
+            Vector3 sideFriction = (reverse ? -1 : 1) * -transform.right * (sidewaysSpeed / Time.fixedDeltaTime);
 
             m_rigidBody.AddForce(sideFriction, ForceMode.Acceleration);
 

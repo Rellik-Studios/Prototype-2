@@ -14,6 +14,8 @@ namespace Himanshu
         
         [SerializeField] private int playerIndex;
 
+        public int index => playerIndex;
+        
         //Returns Horizontal if left stick is moved, zero if not
         public float horizontal => Mathf.Abs(m_movement) > 0.1f ? m_movement : 0;
         
