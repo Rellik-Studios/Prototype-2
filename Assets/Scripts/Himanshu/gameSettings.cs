@@ -31,7 +31,7 @@ namespace Himanshu
                 {
                     foreach (var playerInput in GameObject.FindObjectsOfType<PlayerInput>())
                     {
-                        playerInput.gameObject.SetActive(true);
+                        playerInput.gameObject.GetComponent<PlayerMovement>().enabled = true;
                     }
                     
                 } break;
