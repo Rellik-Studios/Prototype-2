@@ -31,4 +31,11 @@ public class PlayerRespawn : MonoBehaviour
         position = checkpoint.position;
         rotation = checkpoint.rotation;
     }
+
+    public void RespawnCar()
+    {
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+    }
 }

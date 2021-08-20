@@ -10,6 +10,7 @@ public class TrackCheckpoints : MonoBehaviour
     private int m_nextIndexCheckpoint;
     private int m_laps;
     private List<SingleCheckpoint> m_checkpointList;
+    [SerializeField] private GameObject warningText;
     //MULTIPLAYER
     [SerializeField] private List<Transform> carTransformList;
     private List<int> m_nextIndexCheckpointList;
@@ -46,14 +47,16 @@ public class TrackCheckpoints : MonoBehaviour
     }
 
     //checks for each checkpoint and its index for one car
-    public void PlayerThroughCheckpoint(SingleCheckpoint singleCheckpoint)
+    public void PlayerThroughCheckpoint(SingleCheckpoint singleCheckpoint, PlayerRespawn _player)
     {
         //checks if the next checkpoint index is the same within the list of checkpoints
         if(m_checkpointList.IndexOf(singleCheckpoint) == m_nextIndexCheckpoint)
         {
             Debug.Log("Correct Checkpoint");
+            _player.SetRespawnPoint(m_checkpointList[m_nextIndexCheckpoint].transform);
             m_checkpointList[m_nextIndexCheckpoint].gameObject.SetActive(false);
             m_nextIndexCheckpoint = (m_nextIndexCheckpoint +1) % m_checkpointList.Count;
+
 
             //when the player goes to all the checkpoints
             if(m_nextIndexCheckpoint == 0)
@@ -79,6 +82,8 @@ public class TrackCheckpoints : MonoBehaviour
         if (m_checkpointList.IndexOf(singleCheckpoint) == nextCheckpoint)
         {
             Debug.Log("Correct Checkpoint");
+            if (warningText.activeSelf)
+                warningText.SetActive(false);
             m_checkpointList[m_nextIndexCheckpointList[carTransformList.IndexOf(carTransform)]].gameObject.SetActive(false);
             m_nextIndexCheckpointList[carTransformList.IndexOf(carTransform)] = (nextCheckpoint + 1) % m_checkpointList.Count;
 
@@ -93,6 +98,7 @@ public class TrackCheckpoints : MonoBehaviour
         }
         else
         {
+            warningText.SetActive(true);
             Debug.Log("Wrong Checkpoint");
         }
     }
