@@ -53,6 +53,8 @@ public class TrackCheckpoints : MonoBehaviour
         if(m_checkpointList.IndexOf(singleCheckpoint) == m_nextIndexCheckpoint)
         {
             Debug.Log("Correct Checkpoint");
+            if (warningText.activeSelf)
+                warningText.SetActive(false);
             _player.SetRespawnPoint(m_checkpointList[m_nextIndexCheckpoint].transform);
             m_checkpointList[m_nextIndexCheckpoint].gameObject.SetActive(false);
             m_nextIndexCheckpoint = (m_nextIndexCheckpoint +1) % m_checkpointList.Count;
@@ -69,10 +71,12 @@ public class TrackCheckpoints : MonoBehaviour
         }
         else
         {
+            warningText.SetActive(true);
             Debug.Log("Wrong Checkpoint");
         }
     }
 
+    /*
     ////checks for each checkpoint and its index for multiple cars
     public void CarThroughCheckpoint(SingleCheckpoint singleCheckpoint, Transform carTransform)
     {
@@ -82,8 +86,7 @@ public class TrackCheckpoints : MonoBehaviour
         if (m_checkpointList.IndexOf(singleCheckpoint) == nextCheckpoint)
         {
             Debug.Log("Correct Checkpoint");
-            if (warningText.activeSelf)
-                warningText.SetActive(false);
+          
             m_checkpointList[m_nextIndexCheckpointList[carTransformList.IndexOf(carTransform)]].gameObject.SetActive(false);
             m_nextIndexCheckpointList[carTransformList.IndexOf(carTransform)] = (nextCheckpoint + 1) % m_checkpointList.Count;
 
@@ -98,10 +101,11 @@ public class TrackCheckpoints : MonoBehaviour
         }
         else
         {
-            warningText.SetActive(true);
+            
             Debug.Log("Wrong Checkpoint");
         }
     }
+    */
     // Update is called once per frame
     void Update()
     {
