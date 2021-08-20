@@ -15,13 +15,14 @@ public class TrackCheckpoints : MonoBehaviour
     private List<int> m_nextIndexCheckpointList;
     private void Awake()
     {
-        Transform checkpointsTransform = transform.Find("Checkpoints");
+        Transform checkpointsTransform = transform;
 
         m_checkpointList = new List<SingleCheckpoint>();
         foreach (Transform singleCheckpointTransform in checkpointsTransform)
         {
             SingleCheckpoint singleCheckpoint = singleCheckpointTransform.GetComponent<SingleCheckpoint>();
-            
+
+            singleCheckpoint.carTransform = carTransformList[0];
             singleCheckpoint.SetTrackCheckpoints(this);
             singleCheckpoint.gameObject.SetActive(false);
             
