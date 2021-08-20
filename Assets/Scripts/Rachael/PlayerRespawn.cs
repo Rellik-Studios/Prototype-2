@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Himanshu;
 
 public class PlayerRespawn : MonoBehaviour
 {
@@ -30,5 +31,30 @@ public class PlayerRespawn : MonoBehaviour
     {
         position = checkpoint.position;
         rotation = checkpoint.rotation;
+    }
+
+    public void RespawnCar()
+    {
+        gameObject.transform.position = position;
+        gameObject.transform.rotation = rotation;
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
+        //respawning processing
+        StartCoroutine(RespawningProcess(3.0f));
+        gameObject.GetComponent<PlayerInput>().enabled = false;
+        //gameObject.GetComponent<PlayerMovement>().enabled = false;
+        print("Respawning please hold");
+    }
+
+    private IEnumerator RespawningProcess(float waitTime)
+    {
+        //apply animation here
+
+        yield return new WaitForSeconds(waitTime);
+        gameObject.GetComponent<PlayerInput>().enabled = true;
+        //gameObject.GetComponent<PlayerMovement>().enabled = true;
+        print("Now you can move");
+
+
     }
 }

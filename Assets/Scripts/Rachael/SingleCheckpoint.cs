@@ -19,9 +19,9 @@ public class SingleCheckpoint : MonoBehaviour
             //calls the function to indicate this checkpoint has been through.
             if (other.transform == carTransform)
             {
-                m_trackCheckpoints.PlayerThroughCheckpoint(this);
+                m_trackCheckpoints.PlayerThroughCheckpoint(this, _player);
 
-                _player.SetRespawnPoint(this.transform);
+                //_player.SetRespawnPoint(this.transform);
             }
             //calls function to all cars
             //m_trackCheckpoints.CarThroughCheckpoint(this, other.transform);

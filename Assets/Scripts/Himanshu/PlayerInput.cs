@@ -11,6 +11,7 @@ namespace Himanshu
         private float m_movement;
         private bool m_handBrake;
         
+        
         [SerializeField] private int playerIndex;
 
         //Returns Horizontal if left stick is moved, zero if not
@@ -44,6 +45,13 @@ namespace Himanshu
             m_handBrake = Input.GetButtonDown($"HandBrake_P{playerIndex}");
 
         }
-        
+        private void OnDisable()
+        {
+            m_throttle = 0;
+            m_brake = 0;
+            m_movement = 0;
+            m_handBrake = false;
+        }
+
     }
 }
