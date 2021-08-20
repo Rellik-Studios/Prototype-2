@@ -41,7 +41,8 @@ namespace Himanshu
             m_throttle = Input.GetAxis($"Throttle_P{playerIndex}");
             m_brake = Input.GetAxis($"Brake_P{playerIndex}");
             m_movement = Input.GetAxis($"Horizontal_P{playerIndex}");
-            m_handBrake = Input.GetButtonDown($"HandBrake{playerIndex}");
+            m_handBrake = Input.GetButtonDown($"HandBrake_P{playerIndex}");
+
         }
         
     }
