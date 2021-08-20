@@ -18,6 +18,7 @@ namespace Himanshu
         public float driveForce = 17f;
         public float slowingVelFactor = .99f;
         public float brakingVelFactor = .95f;
+        public float handBrakeVelFactor = .80f;
         public float angleOfRoll = 30f;
 
         [Header("Hover")] 
@@ -125,7 +126,7 @@ namespace Himanshu
 
             float sidewaysSpeed = Vector3.Dot(m_rigidBody.velocity, transform.right);
 
-            Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime / 8f);
+            Vector3 sideFriction = -transform.right * (sidewaysSpeed / Time.fixedDeltaTime);
 
             m_rigidBody.AddForce(sideFriction, ForceMode.Acceleration);
 
@@ -136,16 +137,36 @@ namespace Himanshu
 
             if (!isOnGround) return;
 
-            if (m_playerInput.brake > 0f)
-            {
-                m_rigidBody.velocity *= brakingVelFactor;
+            if(m_playerInput.handBrake)
+            {   
+                m_rigidBody.velocity *= handBrakeVelFactor;
+                if (m_playerInput.horizontal != 0)
+                {
+                    
+                }
             }
 
-            float propulsion = driveForce * m_playerInput.throttle;
-            //Debug.Log(m_playerInput.throttle);
-            if(speed < terminalVelocity)
-                m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
-            
+            else if (m_playerInput.brake > 0f)
+            {
+                if(speed > 1f)
+                    m_rigidBody.velocity *= brakingVelFactor;
+                else
+                {
+                    float propulsion = driveForce / 2  * m_playerInput.brake;
+                    //Debug.Log(m_playerInput.throttle);
+                    if(speed < terminalVelocity / 2)
+                        m_rigidBody.AddForce(transform.forward * -propulsion, ForceMode.Acceleration);
+                }
+            }
+
+            else
+            {
+                float propulsion = driveForce * m_playerInput.throttle;
+                //Debug.Log(m_playerInput.throttle);
+                if(speed < terminalVelocity)
+                    m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+
+            }
         }
     }
 }
