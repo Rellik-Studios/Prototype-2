@@ -22,23 +22,25 @@ namespace Himanshu
         public float angleOfRoll = 30f;
 
         [Header("Hover")] 
-        public float hoverHeight = 1.5f;
-        public float maxGroundDistance = 5f;
-        public float hoverForce = 300f;
-        public LayerMask ground;
-        public PIDController hoverPID;
-
+        [SerializeField] private float hoverHeight = 1.5f;
+        [SerializeField] private float maxGroundDistance = 5f;
+        [SerializeField] private float hoverForce = 300f;
+        [SerializeField] private LayerMask ground;
+        [SerializeField] private LayerMask groundAbove;
+        [SerializeField] private PIDController hoverPID;
+        [SerializeField] private bool reverse;
+        
         [Header("Physics")] 
-        public Transform vehicleBody;
-        public float terminalVelocity = 100f;
-        public float hoverGravity = 20f;
-        public float fallGravity = 80f;
+        [SerializeField] private Transform vehicleBody;
+        [SerializeField] private float terminalVelocity = 100f;
+        [SerializeField] private float hoverGravity = 20f;
+        [SerializeField] private float fallGravity = 80f;
         
         private PlayerInput m_playerInput;
         private Rigidbody m_rigidBody;
         private float drag = 1f;
         private bool isOnGround;
-        
+
         private void Start()
         {
 
@@ -70,20 +72,23 @@ namespace Himanshu
         {
             Vector3 groundNormal;
             Ray ray = new Ray(transform.position, -transform.up);
-
             RaycastHit hitInfo;
 
-            isOnGround = Physics.Raycast(ray, out hitInfo, maxGroundDistance, ground);
+            bool wasOnGround = isOnGround;
+            isOnGround = Physics.Raycast(ray, out hitInfo, maxGroundDistance, (reverse?groundAbove:ground));
+            
             //var onGround = Physics.Raycast(ray, out hitInfo, 0f, ground);
 
             if (isOnGround)
             {
+                if (!wasOnGround)
+                    m_rigidBody.velocity = new Vector3(m_rigidBody.velocity.x, 0f, m_rigidBody.velocity.z);
                 float height = hitInfo.distance;
                 groundNormal = hitInfo.normal.normalized;
                 float forcePercent = hoverPID.Seek(hoverHeight, height);
 
-                Vector3 force = groundNormal * hoverForce * forcePercent;
-                Vector3 gravity = -groundNormal * hoverGravity * hoverHeight;
+                Vector3 force = (reverse? -1: 1) * groundNormal * hoverForce * forcePercent;
+                Vector3 gravity = (reverse? -1: 1) * -groundNormal * hoverGravity * hoverHeight;
                 m_rigidBody.AddForce(force, ForceMode.Acceleration);
                 m_rigidBody.AddForce(gravity, ForceMode.Acceleration);
             }
@@ -102,7 +107,8 @@ namespace Himanshu
 
             else
             {
-                groundNormal = Vector3.up;
+
+                groundNormal = reverse ? -Vector3.up : Vector3.up;
                 Vector3 gravity = -groundNormal * fallGravity;
                 m_rigidBody.AddForce(gravity, ForceMode.Acceleration);
             }
@@ -168,5 +174,16 @@ namespace Himanshu
 
             }
         }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                m_rigidBody.velocity = Vector3.zero;
+                m_rigidBody.angularVelocity = Vector3.zero;
+            }
+        }
     }
+    
+    
 }
