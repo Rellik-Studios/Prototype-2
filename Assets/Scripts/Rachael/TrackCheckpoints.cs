@@ -65,8 +65,14 @@ public class TrackCheckpoints : MonoBehaviour
             if(m_nextIndexCheckpoint == 0)
             {
                 m_laps++;
-                Debug.Log("lap "+ m_laps.ToString());
+                if (m_laps != 4)
 
+                    Debug.Log("lap " + m_laps.ToString() + "/3");
+
+                else
+                    _player.FinishCar();
+                    
+   
             }
             m_checkpointList[(m_nextIndexCheckpoint+1) % m_checkpointList.Count].gameObject.SetActive(true);
         }
