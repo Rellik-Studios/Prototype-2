@@ -3,11 +3,6 @@ using UnityEngine;
 
 namespace Himanshu
 {
-    //The class handles calculating a desired value based on a PID algorithm
-//This code is not specific to this game and is instead how PID algorithms work
-//in electronics, robotics, and controlling software
-
-    using UnityEngine;
 
     public class PlayerMovement : MonoBehaviour
     {
@@ -15,11 +10,13 @@ namespace Himanshu
         public float speed;
 
         [Header("Drive")] 
-        public float driveForce = 17f;
-        public float slowingVelFactor = .99f;
-        public float brakingVelFactor = .95f;
-        public float handBrakeVelFactor = .80f;
-        public float angleOfRoll = 30f;
+        [SerializeField] private float driveForce = 17f;
+        [SerializeField] private float boostFactor = 1.5f;
+        [SerializeField] private float boostTimer = 3f;
+        [SerializeField] private float slowingVelFactor = .99f;
+        [SerializeField] private float brakingVelFactor = .95f;
+        [SerializeField] private float handBrakeVelFactor = .80f;
+        [SerializeField] private float angleOfRoll = 30f;
 
         [Header("Hover")] 
         [SerializeField] private float hoverHeight = 1.5f;
@@ -65,7 +62,19 @@ namespace Himanshu
             speed = Vector3.Dot(m_rigidBody.velocity, transform.forward);
             CalculateHover();
             CalculatePropulsion();
-            var throttle = m_playerInput.throttle;
+            CalculateBoost();
+        }
+
+        private void CalculateBoost()
+        {
+            if (m_playerInput.boost && boostTimer > 1f)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
 
         private void CalculateHover()
@@ -129,9 +138,9 @@ namespace Himanshu
         {
             float rotationTorque = m_playerInput.horizontal - m_rigidBody.angularVelocity.y;
             rotationTorque *= reverse ? -1f : 1f;
-            if(rotationTorque < 1f)
-                m_rigidBody.AddTorque(0f, rotationTorque, 0f, ForceMode.VelocityChange);
-
+            
+            m_rigidBody.AddTorque(0f, rotationTorque, 0f, ForceMode.VelocityChange);
+            
             if (m_playerInput.index == 1)
             {
                 Debug.Log(rotationTorque);
@@ -183,6 +192,23 @@ namespace Himanshu
             }
         }
 
+        private void LateUpdate()
+        {
+            if (reverse)
+            {
+                if (m_rigidBody.angularVelocity.y < -1)
+                    m_rigidBody.angularVelocity = new Vector3(0f, -0.999f, 0f);
+                
+                else if (m_rigidBody.angularVelocity.y > 1)
+                    m_rigidBody.angularVelocity = new Vector3(0f, 0.999f, 0f);
+            }
+            
+            if (m_playerInput.horizontal == 0)
+            {
+                m_rigidBody.angularVelocity = Vector3.zero;
+            }
+        }
+
         private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
@@ -192,6 +218,4 @@ namespace Himanshu
             }
         }
     }
-    
-    
 }
