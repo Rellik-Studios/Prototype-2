@@ -3,16 +3,51 @@ using UnityEngine;
 
 namespace Himanshu
 {
+    //The class handles calculating a desired value based on a PID algorithm
+//This code is not specific to this game and is instead how PID algorithms work
+//in electronics, robotics, and controlling software
+
+    using UnityEngine;
+
     public class PlayerMovement : MonoBehaviour
     {
+
+        public float speed;
+
+        [Header("Drive")] 
+        public float driveForce = 17f;
+        public float slowingVelFactor = .99f;
+        public float brakingVelFactor = .95f;
+        public float handBrakeVelFactor = .80f;
+        public float angleOfRoll = 30f;
+
+        [Header("Hover")] 
+        [SerializeField] private float hoverHeight = 1.5f;
+        [SerializeField] private float maxGroundDistance = 5f;
+        [SerializeField] private float hoverForce = 300f;
+        [SerializeField] private LayerMask ground;
+        [SerializeField] private LayerMask groundAbove;
+        [SerializeField] private PIDController hoverPID;
+        [SerializeField] private bool reverse;
+        
+        [Header("Physics")] 
+        [SerializeField] private Transform vehicleBody;
+        [SerializeField] private float terminalVelocity = 100f;
+        [SerializeField] private float hoverGravity = 20f;
+        [SerializeField] private float fallGravity = 80f;
+        
         private PlayerInput m_playerInput;
         private Rigidbody m_rigidBody;
-        [SerializeField] private float m_accelaration;
-        [SerializeField] private float m_topSpeed;
-        [SerializeField] private float m_turnMultiplier;
-        
+        private float drag = 1f;
+        private bool isOnGround;
+
         private void Start()
         {
+
+            if (vehicleBody == null)
+            {
+                throw new Exception($"{name} does not have a vehicle Body object");
+            }
             if (TryGetComponent(out Rigidbody _rigidBody))
             {
                 m_rigidBody = _rigidBody;
@@ -25,23 +60,138 @@ namespace Himanshu
             m_playerInput = GetComponent<PlayerInput>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
+            speed = Vector3.Dot(m_rigidBody.velocity, transform.forward);
+            CalculateHover();
+            CalculatePropulsion();
             var throttle = m_playerInput.throttle;
-           // Debug.Log(throttle);
-            if (throttle > 0)
+        }
+
+        private void CalculateHover()
+        {
+            Vector3 groundNormal;
+            Ray ray = new Ray(transform.position, -transform.up);
+            RaycastHit hitInfo;
+
+            bool wasOnGround = isOnGround;
+            isOnGround = Physics.Raycast(ray, out hitInfo, maxGroundDistance, (reverse?groundAbove:ground));
+            
+            //var onGround = Physics.Raycast(ray, out hitInfo, 0f, ground);
+
+            if (isOnGround)
             {
-                if (m_rigidBody.velocity.magnitude < m_topSpeed)
+                if (!wasOnGround)
+                    m_rigidBody.velocity = new Vector3(m_rigidBody.velocity.x, 0f, m_rigidBody.velocity.z);
+                float height = hitInfo.distance;
+                groundNormal = hitInfo.normal.normalized;
+                float forcePercent = hoverPID.Seek(hoverHeight, height);
+
+                Vector3 force =  groundNormal * hoverForce * forcePercent;
+                Vector3 gravity =  -groundNormal * hoverGravity * hoverHeight;
+                m_rigidBody.AddForce(force, ForceMode.Acceleration);
+                m_rigidBody.AddForce(gravity, ForceMode.Acceleration);
+            }
+            
+            // else if (onGround)
+            // {
+            //     float height = hitInfo.distance;
+            //     groundNormal = hitInfo.normal.normalized;
+            //     float forcePercent = hoverPID.Seek(hoverHeight, height);
+            //
+            //     Vector3 force = groundNormal * hoverForce * forcePercent;
+            //     Vector3 gravity = -groundNormal * hoverGravity * hoverHeight;
+            //     m_rigidBody.velocity = new Vector3(m_rigidBody.velocity.x, 0f, m_rigidBody.velocity.y);
+            //     m_rigidBody.AddForce(force, ForceMode.Acceleration);
+            // }
+
+            else
+            {
+
+                groundNormal = reverse ? -Vector3.up : Vector3.up;
+                Vector3 gravity = -groundNormal * fallGravity;
+                m_rigidBody.AddForce(gravity, ForceMode.Acceleration);
+            }
+
+            Vector3 projection = Vector3.ProjectOnPlane(transform.forward, groundNormal);
+            Quaternion rotation = Quaternion.LookRotation(projection, groundNormal);
+            
+            m_rigidBody.MoveRotation(Quaternion.Lerp(m_rigidBody.rotation,rotation,Time.deltaTime * 10f));
+
+            float angle = angleOfRoll * -m_playerInput.horizontal;
+
+            Quaternion bodyRotation = transform.rotation * Quaternion.Euler(0f, 0f, angle);
+            
+            vehicleBody.rotation = Quaternion.Lerp(vehicleBody.rotation, bodyRotation, Time.deltaTime * 10f);
+        }
+
+        private void CalculatePropulsion()
+        {
+            float rotationTorque = m_playerInput.horizontal - m_rigidBody.angularVelocity.y;
+            rotationTorque *= reverse ? -1f : 1f;
+            if(rotationTorque < 1f)
+                m_rigidBody.AddTorque(0f, rotationTorque, 0f, ForceMode.VelocityChange);
+
+            if (m_playerInput.index == 1)
+            {
+                Debug.Log(rotationTorque);
+                Debug.Log(m_playerInput.horizontal);
+            }
+
+            float sidewaysSpeed = Vector3.Dot(m_rigidBody.velocity, reverse? -transform.right: transform.right);
+
+            Vector3 sideFriction = (reverse ? -1 : 1) * -transform.right * (sidewaysSpeed / Time.fixedDeltaTime);
+
+            m_rigidBody.AddForce(sideFriction, ForceMode.Acceleration);
+
+            if (m_playerInput.throttle == 0f)
+            {
+                m_rigidBody.velocity *= slowingVelFactor;
+            }
+
+            if (!isOnGround) return;
+
+            if(m_playerInput.handBrake)
+            {   
+                m_rigidBody.velocity *= handBrakeVelFactor;
+                if (m_playerInput.horizontal != 0)
                 {
-                    m_rigidBody.AddForce(transform.forward * (m_accelaration * throttle), ForceMode.Acceleration);
+                    
                 }
             }
 
-            if (Mathf.Abs(m_playerInput.horizontal) > 0)
+            else if (m_playerInput.brake > 0f)
             {
-                var eulerAngles = transform.rotation.eulerAngles;
-                transform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y + m_playerInput.horizontal * m_turnMultiplier * m_rigidBody.velocity.magnitude / m_topSpeed, eulerAngles.z);
+                if(speed > 1f)
+                    m_rigidBody.velocity *= brakingVelFactor;
+                else
+                {
+                    float propulsion = driveForce / 2  * m_playerInput.brake;
+                    //Debug.Log(m_playerInput.throttle);
+                    if(speed < terminalVelocity / 2)
+                        m_rigidBody.AddForce(transform.forward * -propulsion, ForceMode.Acceleration);
+                }
+            }
+
+            else
+            {
+                float propulsion = driveForce * m_playerInput.throttle;
+                //Debug.Log(m_playerInput.throttle);
+                if(speed < terminalVelocity)
+                    m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+
+            }
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                m_rigidBody.velocity = Vector3.zero;
+                m_rigidBody.angularVelocity = Vector3.zero;
             }
         }
     }
+    
+    
 }
