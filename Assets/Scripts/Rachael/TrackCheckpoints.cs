@@ -14,6 +14,8 @@ public class TrackCheckpoints : MonoBehaviour
     //MULTIPLAYER
     [SerializeField] private List<Transform> carTransformList;
     private List<int> m_nextIndexCheckpointList;
+    [SerializeField] private int numberOfLaps = 3;
+
     private void Awake()
     {
         Transform checkpointsTransform = transform;
@@ -65,7 +67,7 @@ public class TrackCheckpoints : MonoBehaviour
             if(m_nextIndexCheckpoint == 0)
             {
                 m_laps++;
-                if (m_laps != 4)
+                if (m_laps != numberOfLaps)
 
                     Debug.Log("lap " + m_laps.ToString() + "/3");
 
