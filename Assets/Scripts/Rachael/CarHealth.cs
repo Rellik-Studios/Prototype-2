@@ -14,8 +14,11 @@ public class CarHealth : MonoBehaviour
     void Start()
     {
         MaxHealth = health;
-        healthBar.value = health;
-        fill.color = gradient.Evaluate(1.0f);
+        if (healthBar != null)
+        {
+            healthBar.value = health;
+            fill.color = gradient.Evaluate(1.0f);
+        }
     }
 
     // Update is called once per frame
@@ -27,11 +30,16 @@ public class CarHealth : MonoBehaviour
             DamageFromPlayer();
         }
     }
+    //Updates the Healthbar UI
     void UpdateBarUI()
     {
-        healthBar.value = health;
-        fill.color = gradient.Evaluate(healthBar.normalizedValue);
+        if (healthBar != null)
+        {
+            healthBar.value = health;
+            fill.color = gradient.Evaluate(healthBar.normalizedValue);
+        }
     }
+    //Gets the health
     public int GetHealth()
     {
         return health;
