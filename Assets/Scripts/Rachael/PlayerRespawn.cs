@@ -111,7 +111,7 @@ public class PlayerRespawn : MonoBehaviour
     }
     private IEnumerator RespawningProcess(float waitTime)
     {
-        //apply animation here
+        //apply animation  for car explosion here
 
         yield return new WaitForSeconds(waitTime);
         gameObject.GetComponent<PlayerInput>().enabled = true;
