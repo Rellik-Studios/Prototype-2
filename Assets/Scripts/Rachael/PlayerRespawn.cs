@@ -11,7 +11,7 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 position;
     private Quaternion rotation;
     private bool finished;
-    PlayerRespawn[] components;
+    PlayerRespawn[] cars;
     public Powertypes playerpower;
 
     //for now there is the sceneManager
@@ -26,7 +26,7 @@ public class PlayerRespawn : MonoBehaviour
         //starting the race
         StartCoroutine(StartProcess());
 
-        components = GameObject.FindObjectsOfType<PlayerRespawn>();
+        cars = GameObject.FindObjectsOfType<PlayerRespawn>();
     }
 
     // Update is called once per frame
@@ -94,21 +94,23 @@ public class PlayerRespawn : MonoBehaviour
     {
         return finished;
     }
+    //checking if all the cars have finished the race
     public bool CheckAllCars()
     {
-        if(components ==null)
+        if(cars ==null)
         {
             return false;
         }
 
-        foreach (PlayerRespawn comp in components)
+        foreach (PlayerRespawn car in cars)
         {
-            if (!comp.finished)
+            if (!car.finished)
                 return false;
 
         }
         return true;
     }
+    //respawn process
     private IEnumerator RespawningProcess(float waitTime)
     {
         //apply animation  for car explosion here
@@ -121,7 +123,7 @@ public class PlayerRespawn : MonoBehaviour
 
 
     }
-
+    //starting race process
     private IEnumerator StartProcess()
     {
 
@@ -143,7 +145,7 @@ public class PlayerRespawn : MonoBehaviour
         yield return new WaitForSeconds(1);
         m_ReadySetGo.gameObject.SetActive(false);
     }
-
+    //finish race process
     private IEnumerator FinishProcedure()
     {
 

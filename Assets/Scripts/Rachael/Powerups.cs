@@ -36,7 +36,7 @@ public class Powerups : MonoBehaviour
             }
         }
     }
-
+    //randomly picking a power up
     Powertypes RandomDraw()
     {
         

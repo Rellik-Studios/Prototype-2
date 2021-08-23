@@ -39,28 +39,31 @@ public class CarHealth : MonoBehaviour
             fill.color = gradient.Evaluate(healthBar.normalizedValue);
         }
     }
-    //Gets the health
+    //Gets the health value
     public int GetHealth()
     {
         return health;
     }
+    //recover health
     public void ReplenishHealth()
     {
         if(health <= 0)
             health = Mathf.Clamp(health+2, 1, MaxHealth);
         UpdateBarUI();
     }
+    //damaging receieved from the player
     public void DamageFromPlayer()
     {
         health = Mathf.Clamp(health - 1, 0, MaxHealth);
         UpdateBarUI();
     }
+    //damage from the power up
     public void DamageFromPowerUp()
     {
         health = Mathf.Clamp(health - 2, 0, MaxHealth);
         UpdateBarUI();
     }
-
+    //reseting the health to max
     public void ResetHealth()
     {
         health = MaxHealth;
