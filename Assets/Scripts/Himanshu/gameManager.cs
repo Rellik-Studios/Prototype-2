@@ -9,15 +9,15 @@ namespace Himanshu
 
         public static gameManager Instance
         {
-            get;
-            private set;
+            get => m_instance;
+            private set => m_instance = value;
         }
 
 
         private void Awake()
         {
-            if (m_instance == null)
-                m_instance = this;
+            if (Instance == null)
+                Instance = this;
 
             else
                 Destroy(this.gameObject);
