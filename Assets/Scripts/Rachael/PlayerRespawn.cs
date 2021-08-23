@@ -11,6 +11,7 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 position;
     private Quaternion rotation;
     private bool finished;
+    PlayerRespawn[] components;
 
     //for now there is the sceneManager
     [SerializeField] private GameObject m_subMenu;
@@ -20,7 +21,10 @@ public class PlayerRespawn : MonoBehaviour
     {
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
+        //starting the race
         StartCoroutine(StartProcess());
+
+        components = GameObject.FindObjectsOfType<PlayerRespawn>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,14 @@ public class PlayerRespawn : MonoBehaviour
             gameObject.transform.position = position;
             gameObject.transform.rotation = rotation;
         }
+        if(GetComponent<CarHealth>() !=null)
+        {
+            if(GetComponent<CarHealth>().GetHealth() <=0)
+            {
+                RespawnCar();
+            }
+        }
+
     }
 
     public void SetRespawnPoint(Transform checkpoint)
@@ -49,6 +61,11 @@ public class PlayerRespawn : MonoBehaviour
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
         gameObject.GetComponent<PlayerInput>().enabled = false;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        if (gameObject.GetComponent<CarHealth>() !=null)
+        {
+            GetComponent<CarHealth>().ResetHealth();
+        }
         //gameObject.GetComponent<PlayerMovement>().enabled = false;
         print("Respawning please hold");
     }
@@ -61,13 +78,28 @@ public class PlayerRespawn : MonoBehaviour
     {
         return finished;
     }
+    public bool CheckAllCars()
+    {
+        if(components ==null)
+        {
+            return false;
+        }
 
+        foreach (PlayerRespawn comp in components)
+        {
+            if (!comp.finished)
+                return false;
+
+        }
+        return true;
+    }
     private IEnumerator RespawningProcess(float waitTime)
     {
         //apply animation here
 
         yield return new WaitForSeconds(waitTime);
         gameObject.GetComponent<PlayerInput>().enabled = true;
+        gameObject.GetComponent<BoxCollider>().enabled = true;
         //gameObject.GetComponent<PlayerMovement>().enabled = true;
         print("Now you can move");
 
@@ -107,8 +139,10 @@ public class PlayerRespawn : MonoBehaviour
         m_ReadySetGo.text = "Finished!";
         yield return new WaitForSeconds(3);
         //gameObject.SetActive(false);
-        m_subMenu.SetActive(true);
         finished = true;
+
+        if (CheckAllCars())
+            m_subMenu.SetActive(true);
         //for now there is a out scene thing
 
     }
