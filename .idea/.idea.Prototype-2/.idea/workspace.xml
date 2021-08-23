@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/MinimapRenderTexture.renderTexture" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/MinimapRenderTexture.renderTexture.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +39,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PIDController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/SingleCheckpoint.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
+      <option value="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wsYtJuWJTCiqxf4aBOc7qi9rtk" />
@@ -96,6 +100,7 @@
       <workItem from="1629350589066" duration="5447000" />
       <workItem from="1629419330902" duration="13017000" />
       <workItem from="1629539637554" duration="4187000" />
+      <workItem from="1629707767073" duration="3428000" />
     </task>
     <servers />
   </component>

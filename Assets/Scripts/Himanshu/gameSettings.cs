@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Himanshu
 {
@@ -39,7 +40,16 @@ namespace Himanshu
                     
                     break;
                 case eGameModes.timeTrial:
-                    
+                {
+                    foreach (var playerInput in GameObject.FindObjectsOfType<PlayerInput>())
+                    {
+                        if (playerInput.index != 1)
+                            playerInput.gameObject.GetComponent<PlayerMovement>().gameObject.SetActive(false);
+                        else
+                            playerInput.transform.Find("Main Camera").GetComponent<Camera>().rect =
+                                new Rect(0, 0, 1, 1);
+                    }
+                }
                     break;
             }
 
