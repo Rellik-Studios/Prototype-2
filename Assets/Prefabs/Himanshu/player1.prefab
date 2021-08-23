@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8906117421554406097}
   - component: {fileID: 619277615}
   - component: {fileID: 619277620}
+  - component: {fileID: 6491539607527308049}
   m_Layer: 0
   m_Name: player1
   m_TagString: Untagged
@@ -80,8 +81,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.1
   driveForce: 17
+  boostFactor: 1.5
+  boostTimer: 3
   slowingVelFactor: 0.99
   brakingVelFactor: 0.95
+  handBrakeVelFactor: 0.8
   angleOfRoll: 30
   hoverHeight: 1.5
   maxGroundDistance: 5
@@ -89,12 +93,16 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
+  groundAbove:
+    serializedVersion: 2
+    m_Bits: 0
   hoverPID:
     pCoeff: 0.8
     iCoeff: 0.0002
     dCoeff: 0.2
     minimum: -1
     maximum: 1
+  reverse: 0
   vehicleBody: {fileID: 8906117422374004399}
   terminalVelocity: 100
   hoverGravity: 20
@@ -125,6 +133,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_carTransform: {fileID: 8906117421554406103}
+  m_ReadySetGo: {fileID: 0}
+  m_subMenu: {fileID: 0}
+--- !u!114 &6491539607527308049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906117421554406104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4018fe031829fc54b88be46f1834ff34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 5
 --- !u!1 &8906117421725680742
 GameObject:
   m_ObjectHideFlags: 0

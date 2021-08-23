@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathArea : MonoBehaviour
 {
+    //When player collides to the Death area 
     private void OnTriggerEnter(Collider other)
     {
         //when the car enters a checkpoint
