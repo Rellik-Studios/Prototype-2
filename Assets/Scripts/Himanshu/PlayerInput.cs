@@ -14,6 +14,7 @@ namespace Himanshu
         
         
         [SerializeField] private int playerIndex;
+        private bool m_powerUp;
 
         public int index => playerIndex;
         
@@ -50,14 +51,20 @@ namespace Himanshu
             m_movement = Input.GetAxis($"Horizontal_P{playerIndex}");
             m_handBrake = Input.GetButtonDown($"HandBrake_P{playerIndex}");
             m_boost = Input.GetButton($"Boost_P{playerIndex}");
+            m_powerUp = Input.GetButton($"PowerUp{playerIndex}");
         }
         private void OnDisable()
+        {
+            Reset();
+        }
+
+        public void Reset()
         {
             m_throttle = 0;
             m_brake = 0;
             m_movement = 0;
             m_handBrake = false;
         }
-
     }
+    
 }

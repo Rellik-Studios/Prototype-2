@@ -149,6 +149,7 @@ public class PlayerRespawn : MonoBehaviour
     private IEnumerator FinishProcedure()
     {
 
+        gameObject.GetComponent<PlayerInput>().Reset();
         gameObject.GetComponent<PlayerInput>().enabled = false;
         //gameObject.GetComponent<PlayerRespawn>().enabled = false;
         //apply animation here
@@ -163,5 +164,14 @@ public class PlayerRespawn : MonoBehaviour
             m_subMenu.SetActive(true);
         //for now there is a out scene thing
 
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("DeadZone"))
+        {
+            RespawnCar();
+        }
     }
 }

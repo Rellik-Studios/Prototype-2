@@ -208,14 +208,5 @@ namespace Himanshu
                 m_rigidBody.angularVelocity = Vector3.zero;
             }
         }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            {
-                m_rigidBody.velocity = Vector3.zero;
-                m_rigidBody.angularVelocity = Vector3.zero;
-            }
-        }
     }
 }
