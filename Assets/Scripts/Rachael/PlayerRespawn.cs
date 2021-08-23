@@ -11,6 +11,8 @@ public class PlayerRespawn : MonoBehaviour
     private Vector3 position;
     private Quaternion rotation;
     private bool finished;
+    PlayerRespawn[] cars;
+    public Powertypes playerpower;
 
     //for now there is the sceneManager
     [SerializeField] private GameObject m_subMenu;
@@ -20,7 +22,11 @@ public class PlayerRespawn : MonoBehaviour
     {
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
+        playerpower = Powertypes.NONE;
+        //starting the race
         StartCoroutine(StartProcess());
+
+        cars = GameObject.FindObjectsOfType<PlayerRespawn>();
     }
 
     // Update is called once per frame
@@ -32,6 +38,27 @@ public class PlayerRespawn : MonoBehaviour
             gameObject.transform.position = position;
             gameObject.transform.rotation = rotation;
         }
+        //Checking if the CarHealth script is present
+        if(GetComponent<CarHealth>() !=null)
+        {
+            //if health is 0 or negative then respawn
+            if(GetComponent<CarHealth>().GetHealth() <=0)
+            {
+                RespawnCar();
+            }
+        }
+        //FOR TESTING PURPOSES ON POWER UP
+        //MIGHT NEED TO ACTIVATE IN THE PLAYER INPUT
+        if (playerpower != Powertypes.NONE)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("player used" + playerpower.ToString());
+                playerpower = Powertypes.NONE;
+
+            }
+        }
+
     }
 
     public void SetRespawnPoint(Transform checkpoint)
@@ -45,10 +72,16 @@ public class PlayerRespawn : MonoBehaviour
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        playerpower = Powertypes.NONE;
 
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
         gameObject.GetComponent<PlayerInput>().enabled = false;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+        if (gameObject.GetComponent<CarHealth>() !=null)
+        {
+            GetComponent<CarHealth>().ResetHealth();
+        }
         //gameObject.GetComponent<PlayerMovement>().enabled = false;
         print("Respawning please hold");
     }
@@ -61,19 +94,36 @@ public class PlayerRespawn : MonoBehaviour
     {
         return finished;
     }
+    //checking if all the cars have finished the race
+    public bool CheckAllCars()
+    {
+        if(cars ==null)
+        {
+            return false;
+        }
 
+        foreach (PlayerRespawn car in cars)
+        {
+            if (!car.finished)
+                return false;
+
+        }
+        return true;
+    }
+    //respawn process
     private IEnumerator RespawningProcess(float waitTime)
     {
-        //apply animation here
+        //apply animation  for car explosion here
 
         yield return new WaitForSeconds(waitTime);
         gameObject.GetComponent<PlayerInput>().enabled = true;
+        gameObject.GetComponent<BoxCollider>().enabled = true;
         //gameObject.GetComponent<PlayerMovement>().enabled = true;
         print("Now you can move");
 
 
     }
-
+    //starting race process
     private IEnumerator StartProcess()
     {
 
@@ -95,7 +145,7 @@ public class PlayerRespawn : MonoBehaviour
         yield return new WaitForSeconds(1);
         m_ReadySetGo.gameObject.SetActive(false);
     }
-
+    //finish race process
     private IEnumerator FinishProcedure()
     {
 
@@ -107,8 +157,10 @@ public class PlayerRespawn : MonoBehaviour
         m_ReadySetGo.text = "Finished!";
         yield return new WaitForSeconds(3);
         //gameObject.SetActive(false);
-        m_subMenu.SetActive(true);
         finished = true;
+
+        if (CheckAllCars())
+            m_subMenu.SetActive(true);
         //for now there is a out scene thing
 
     }
