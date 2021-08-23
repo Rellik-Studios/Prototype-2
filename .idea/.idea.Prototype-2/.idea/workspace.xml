@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/Track3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/Track3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +24,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/390B9B31-902C-410D-9554-5218590D63B6/4f/da4ee7ff/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -100,7 +94,7 @@
       <workItem from="1629350589066" duration="5447000" />
       <workItem from="1629419330902" duration="13017000" />
       <workItem from="1629539637554" duration="4187000" />
-      <workItem from="1629707767073" duration="3428000" />
+      <workItem from="1629707767073" duration="4664000" />
     </task>
     <servers />
   </component>
