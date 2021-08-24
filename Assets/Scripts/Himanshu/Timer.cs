@@ -1,7 +1,1 @@
-﻿namespace Himanshu
-{
-    public class Timer
-    {
-        
-    }
-}
+﻿using System;
