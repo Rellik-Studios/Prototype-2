@@ -7,32 +7,32 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: SM_Speed_Car_Gun_group1Mat
+      name: SM_Speed_Car_Shell_group1Mat
     second: {fileID: 2100000, guid: dab8b4c0a12680046938b6ee3f09a89d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: group1_SM_Left_Front_WheelMat
+      name: SM_Speed_Car_Shell_group1_SM_Left_Front_WheelMat
     second: {fileID: 2100000, guid: dab8b4c0a12680046938b6ee3f09a89d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: group1_SM_Left_rear_WheelMat
+      name: SM_Speed_Car_Shell_group1_SM_Left_rear_WheelMat
     second: {fileID: 2100000, guid: dab8b4c0a12680046938b6ee3f09a89d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: group1_SM_Right_Front_WheelMat
+      name: SM_Speed_Car_Shell_group1_SM_Right_Front_WheelMat
     second: {fileID: 2100000, guid: dab8b4c0a12680046938b6ee3f09a89d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: group1_SM_Right_rear_WheelMat
+      name: SM_Speed_Car_Shell_group1_SM_Right_rear_WheelMat
     second: {fileID: 2100000, guid: dab8b4c0a12680046938b6ee3f09a89d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: group1_SM_Speed_Car_ShellMat
+      name: SM_Speed_Car_Shell_group1_SM_Speed_Car_GunMat
     second: {fileID: 2100000, guid: dab8b4c0a12680046938b6ee3f09a89d, type: 2}
   materials:
     materialImportMode: 2
