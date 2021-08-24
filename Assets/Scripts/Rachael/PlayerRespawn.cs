@@ -12,6 +12,7 @@ public class PlayerRespawn : MonoBehaviour
     private Quaternion rotation;
     private bool finished;
     PlayerRespawn[] cars;
+    private PlayerInput m_playerInput;
     public Powertypes playerpower;
 
     //for now there is the sceneManager
@@ -20,6 +21,7 @@ public class PlayerRespawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_playerInput = GetComponent<PlayerInput>();
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
         playerpower = Powertypes.NONE;
@@ -51,7 +53,7 @@ public class PlayerRespawn : MonoBehaviour
         //MIGHT NEED TO ACTIVATE IN THE PLAYER INPUT
         if (playerpower != Powertypes.NONE)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (m_playerInput.powerUp)
             {
                 Debug.Log("player used" + playerpower.ToString());
                 playerpower = Powertypes.NONE;
@@ -78,7 +80,7 @@ public class PlayerRespawn : MonoBehaviour
         StartCoroutine(RespawningProcess(3.0f));
         gameObject.GetComponent<PlayerInput>().enabled = false;
         gameObject.GetComponent<BoxCollider>().enabled = false;
-        if (gameObject.GetComponent<CarHealth>() !=null)
+        if (gameObject.GetComponent<CarHealth>() != null)
         {
             GetComponent<CarHealth>().ResetHealth();
         }
