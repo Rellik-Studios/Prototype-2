@@ -9,15 +9,27 @@ namespace Himanshu
 
         public float speed;
 
+        enum eBoostType
+        {
+            PowerShot,
+            Default,
+            PS_Speed,
+        }
+
+        private bool m_canBoost;
+        
         [Header("Drive")] 
         [SerializeField] private float driveForce = 17f;
         [SerializeField] private float boostFactor = 1.5f;
+        [SerializeField] private float boostRegenFactor = 0.5f;
         [SerializeField] private float boostTimer = 3f;
         [SerializeField] private float slowingVelFactor = .99f;
         [SerializeField] private float brakingVelFactor = .95f;
         [SerializeField] private float handBrakeVelFactor = .80f;
         [SerializeField] private float angleOfRoll = 30f;
-
+        [SerializeField] private eBoostType boostType;
+        
+        
         [Header("Hover")] 
         [SerializeField] private float hoverHeight = 1.5f;
         [SerializeField] private float maxGroundDistance = 5f;
@@ -37,9 +49,11 @@ namespace Himanshu
         private Rigidbody m_rigidBody;
         private float drag = 1f;
         private bool isOnGround;
+        private float m_maxBoostTimer;
 
         private void Start()
         {
+            m_maxBoostTimer = boostTimer;
 
             if (vehicleBody == null)
             {
@@ -67,14 +81,70 @@ namespace Himanshu
 
         private void CalculateBoost()
         {
-            if (m_playerInput.boost && boostTimer > 1f)
+            switch (boostType)
             {
-                
+                case eBoostType.Default:
+                {
+                    if (m_playerInput.defaultBoost && m_canBoost && boostTimer > 0f)
+                    {
+                        boostTimer -= Time.deltaTime;
+                        
+                        float propulsion = boostFactor * m_playerInput.throttle;
+                        //Debug.Log(m_playerInput.throttle);
+                        m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+                    }
+                    else
+                    {
+                        if(boostTimer < m_maxBoostTimer)
+                            boostTimer += Time.deltaTime * boostRegenFactor;
+
+                        m_canBoost = boostTimer > 1f && !m_playerInput.defaultBoost;
+                    }                    
+                }
+                    break;
+
+                case eBoostType.PowerShot:
+                {
+                    if (!m_canBoost)
+                        m_canBoost = m_playerInput.powershotBoost && Math.Abs(m_maxBoostTimer - boostTimer) < 0.1f;
+                    
+                    if (m_canBoost && boostTimer > 0f)
+                    {
+                        boostTimer -= Time.deltaTime;
+                        float propulsion = boostFactor;
+                        m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Impulse);
+                    }
+                    else
+                    {
+                        m_canBoost = false;
+                        if(boostTimer < m_maxBoostTimer)
+                            boostTimer += Time.deltaTime * boostRegenFactor;
+                    }
+                }
+                    break;
+
+                case eBoostType.PS_Speed:
+                {
+                    if (!m_canBoost)
+                        m_canBoost = m_playerInput.powershotBoost && Math.Abs(m_maxBoostTimer - boostTimer) < 0.1f;
+
+                    if (m_canBoost && boostTimer > 0f)
+                    {
+                        boostTimer -= Time.deltaTime;
+                        float propulsion = boostFactor;
+                        m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+                    }
+                    else
+                    {
+                        m_canBoost = false;
+                        if (boostTimer < m_maxBoostTimer)
+                            boostTimer += Time.deltaTime * boostRegenFactor;
+                    }
+                }
+                    break;
             }
-            else
-            {
-                
-            }
+            
+
         }
 
         private void CalculateHover()
