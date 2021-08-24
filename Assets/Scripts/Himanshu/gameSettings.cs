@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Himanshu
 {
@@ -7,6 +8,8 @@ namespace Himanshu
     {
         private static gameSettings m_instance;
         public static gameSettings Instance => m_instance;
+        public int numberOfLaps;
+        
 
         public enum eGameModes
         {
@@ -15,7 +18,8 @@ namespace Himanshu
             timeTrial,
         }
 
-        public eGameModes gameMode; 
+        public eGameModes gameMode;
+        public float[] winTimers;
 
         private void Awake()
         {
@@ -39,7 +43,17 @@ namespace Himanshu
                     
                     break;
                 case eGameModes.timeTrial:
-                    
+                {
+                    numberOfLaps = 1;
+                    foreach (var playerInput in GameObject.FindObjectsOfType<PlayerInput>())
+                    {
+                        if (playerInput.index != 1)
+                            playerInput.gameObject.GetComponent<PlayerMovement>().gameObject.SetActive(false);
+                        else
+                            playerInput.transform.Find("Main Camera").GetComponent<Camera>().rect =
+                                new Rect(0, 0, 1, 1);
+                    }
+                }
                     break;
             }
 

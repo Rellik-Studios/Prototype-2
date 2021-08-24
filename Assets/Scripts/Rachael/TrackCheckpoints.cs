@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Himanshu;
 using UnityEngine;
 /// <summary>
 /// Rachael Colaco
@@ -14,6 +15,10 @@ public class TrackCheckpoints : MonoBehaviour
     //MULTIPLAYER
     [SerializeField] private List<Transform> carTransformList;
     private List<int> m_nextIndexCheckpointList;
+    private int numberOfLaps;
+
+    public int currentLap => m_laps;
+    
     private void Awake()
     {
         Transform checkpointsTransform = transform;
@@ -29,6 +34,8 @@ public class TrackCheckpoints : MonoBehaviour
             
             m_checkpointList.Add(singleCheckpoint);
         }
+
+        numberOfLaps = gameSettings.Instance.numberOfLaps;
 
         //FOR MULTIPLAYER---------------------------------
         m_nextIndexCheckpointList = new List<int>();
@@ -65,12 +72,15 @@ public class TrackCheckpoints : MonoBehaviour
             if(m_nextIndexCheckpoint == 0)
             {
                 m_laps++;
-                if (m_laps != 4)
+                if (m_laps != numberOfLaps)
 
                     Debug.Log("lap " + m_laps.ToString() + "/3");
 
                 else
+                {
+                    gameManager.Instance.playing = false;
                     _player.FinishCar();
+                }
                     
    
             }
