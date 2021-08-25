@@ -12,8 +12,6 @@ public class PlayerRespawn : MonoBehaviour
     private Quaternion rotation;
     private bool finished;
     PlayerRespawn[] cars;
-    private PlayerInput m_playerInput;
-    public Powertypes playerpower;
 
     //for now there is the sceneManager
     [SerializeField] private GameObject m_subMenu;
@@ -21,10 +19,10 @@ public class PlayerRespawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_playerInput = GetComponent<PlayerInput>();
+       
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
-        playerpower = Powertypes.NONE;
+        GetComponent<PlayerPowerup>().playerpower = Powertypes.NONE;
         //starting the race
         StartCoroutine(StartProcess());
 
@@ -49,19 +47,9 @@ public class PlayerRespawn : MonoBehaviour
                 RespawnCar();
             }
         }
-        //FOR TESTING PURPOSES ON POWER UP
-        //MIGHT NEED TO ACTIVATE IN THE PLAYER INPUT
-        if (playerpower != Powertypes.NONE)
-        {
-            if (m_playerInput.powerUp)
-            {
-                Debug.Log("player used" + playerpower.ToString());
-                playerpower = Powertypes.NONE;
-
-            }
-        }
-
+        
     }
+
 
     public void SetRespawnPoint(Transform checkpoint)
     {
@@ -74,7 +62,7 @@ public class PlayerRespawn : MonoBehaviour
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        playerpower = Powertypes.NONE;
+        GetComponent<PlayerPowerup>().playerpower = Powertypes.NONE;
 
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
@@ -88,10 +76,12 @@ public class PlayerRespawn : MonoBehaviour
         print("Respawning please hold");
     }
 
+
     public void FinishCar()
     {
         StartCoroutine(FinishProcedure());
     }
+    //checking if this car finished the race
     public bool GetStatus()
     {
         return finished;
@@ -167,7 +157,7 @@ public class PlayerRespawn : MonoBehaviour
         //for now there is a out scene thing
 
     }
-
+    
 
     private void OnCollisionEnter(Collision other)
     {
@@ -176,4 +166,6 @@ public class PlayerRespawn : MonoBehaviour
             RespawnCar();
         }
     }
+
+
 }

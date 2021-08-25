@@ -10,11 +10,12 @@ namespace Himanshu
         private float m_brake;
         private float m_movement;
         private bool m_handBrake;
-        private bool m_boost;
+        private bool m_defaultBoost;
         
         
         [SerializeField] private int playerIndex;
         private bool m_powerUp;
+        private bool m_powershotBoost;
         public bool powerUp => m_powerUp;
 
         public int index => playerIndex;
@@ -26,7 +27,8 @@ namespace Himanshu
         public bool handBrake => m_handBrake;
 
         
-        public bool boost => m_boost;
+        public bool defaultBoost => m_defaultBoost;
+        public bool powershotBoost => m_powershotBoost;
 
         //returns throttle +ve if r2 is pressed
         public float throttle => m_throttle > 0 ? m_throttle : 0;
@@ -51,8 +53,9 @@ namespace Himanshu
             m_brake = Input.GetAxis($"Brake_P{playerIndex}");
             m_movement = Input.GetAxis($"Horizontal_P{playerIndex}");
             m_handBrake = Input.GetButtonDown($"HandBrake_P{playerIndex}");
-            m_boost = Input.GetButton($"Boost_P{playerIndex}");
-            m_powerUp = Input.GetButton($"PowerUp_P{playerIndex}");
+            m_defaultBoost = Input.GetButton($"Boost_P{playerIndex}");
+            m_powershotBoost = Input.GetButtonDown($"Boost_P{playerIndex}");
+            m_powerUp = Input.GetButtonDown($"PowerUp_P{playerIndex}");
         }
         private void OnDisable()
         {

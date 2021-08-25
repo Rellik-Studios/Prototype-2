@@ -26,7 +26,7 @@ public class Powerups : MonoBehaviour
     //when the player collides with the powerup box
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerRespawn>(out PlayerRespawn _player))
+        if (other.TryGetComponent<PlayerPowerup>(out PlayerPowerup _player))
         {
             if(_player.playerpower == Powertypes.NONE)
             {
