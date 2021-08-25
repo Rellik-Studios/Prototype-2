@@ -14,6 +14,8 @@ public class PlayerRespawn : MonoBehaviour
     PlayerRespawn[] cars;
     private PlayerInput m_playerInput;
     public Powertypes playerpower;
+    public GameObject ammo;
+    public Image PowerIcon;
 
     //for now there is the sceneManager
     [SerializeField] private GameObject m_subMenu;
@@ -56,12 +58,18 @@ public class PlayerRespawn : MonoBehaviour
             if (m_playerInput.powerUp)
             {
                 Debug.Log("player used" + playerpower.ToString());
+                UsePowerup(playerpower);
                 playerpower = Powertypes.NONE;
+                if (PowerIcon !=null)
+                    PowerIcon.sprite = null;
+                
+                
 
             }
         }
 
     }
+
 
     public void SetRespawnPoint(Transform checkpoint)
     {
@@ -88,10 +96,12 @@ public class PlayerRespawn : MonoBehaviour
         print("Respawning please hold");
     }
 
+
     public void FinishCar()
     {
         StartCoroutine(FinishProcedure());
     }
+    //checking if this car finished the race
     public bool GetStatus()
     {
         return finished;
@@ -167,7 +177,50 @@ public class PlayerRespawn : MonoBehaviour
         //for now there is a out scene thing
 
     }
+    //
+    private void UsePowerup(Powertypes _powertype)
+    {
+        switch (_powertype)
+        {
+            case Powertypes.FAST:
+                UseSpeed();
+                break;
+            case Powertypes.BULLET:
+                UseBullet();
+                break;
+            case Powertypes.HEALTH:
+                UseHealth();
+                break;
+            default:
+                print("None");
+                break;
+        }
 
+    }
+    private void UseHealth()
+    {
+        GetComponent<CarHealth>().ReplenishHealth();
+    }
+    private void UseSpeed()
+    {
+        //Use speed booster
+    }
+    private void UseBullet()
+    {
+        //just for testing purposes
+        foreach (var car in cars)
+        {
+            if(car.gameObject.name != gameObject.name)
+            {
+                //car.gameObject.GetComponent<CarHealth>().DamageFromPowerUp();
+                GameObject bulletClone = (GameObject)Instantiate(ammo, gameObject.transform.position, gameObject.transform.rotation);
+                bulletClone.GetComponent<BulletTracking>().target = car.gameObject;
+                break;
+            }
+
+        }
+        
+    }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -176,4 +229,6 @@ public class PlayerRespawn : MonoBehaviour
             RespawnCar();
         }
     }
+
+
 }
