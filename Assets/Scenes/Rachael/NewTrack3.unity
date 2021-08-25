@@ -3584,6 +3584,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1017047689}
+    - target: {fileID: 8358449815938587946, guid: 4e7c5df6ff00fa94bb30d6332377890f, type: 3}
+      propertyPath: PowerIcon
+      value: 
+      objectReference: {fileID: 290491424}
     - target: {fileID: 8472507733765313613, guid: 4e7c5df6ff00fa94bb30d6332377890f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4976,7 +4980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -499.6, y: 0}
+  m_AnchoredPosition: {x: -499.59998, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839505613
@@ -6543,6 +6547,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1368855839}
+    - target: {fileID: 8358449815938587946, guid: 4e7c5df6ff00fa94bb30d6332377890f, type: 3}
+      propertyPath: PowerIcon
+      value: 
+      objectReference: {fileID: 1373595031}
     - target: {fileID: 8472507733765313613, guid: 4e7c5df6ff00fa94bb30d6332377890f, type: 3}
       propertyPath: m_RootOrder
       value: 0
