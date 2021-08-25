@@ -12,10 +12,6 @@ public class PlayerRespawn : MonoBehaviour
     private Quaternion rotation;
     private bool finished;
     PlayerRespawn[] cars;
-    private PlayerInput m_playerInput;
-    public Powertypes playerpower;
-    public GameObject ammo;
-    public Image PowerIcon;
 
     //for now there is the sceneManager
     [SerializeField] private GameObject m_subMenu;
@@ -23,10 +19,10 @@ public class PlayerRespawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_playerInput = GetComponent<PlayerInput>();
+       
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
-        playerpower = Powertypes.NONE;
+        GetComponent<PlayerPowerup>().playerpower = Powertypes.NONE;
         //starting the race
         StartCoroutine(StartProcess());
 
@@ -51,23 +47,7 @@ public class PlayerRespawn : MonoBehaviour
                 RespawnCar();
             }
         }
-        //FOR TESTING PURPOSES ON POWER UP
-        //MIGHT NEED TO ACTIVATE IN THE PLAYER INPUT
-        if (playerpower != Powertypes.NONE)
-        {
-            if (m_playerInput.powerUp)
-            {
-                Debug.Log("player used" + playerpower.ToString());
-                UsePowerup(playerpower);
-                playerpower = Powertypes.NONE;
-                if (PowerIcon !=null)
-                    PowerIcon.sprite = null;
-                
-                
-
-            }
-        }
-
+        
     }
 
 
@@ -82,7 +62,7 @@ public class PlayerRespawn : MonoBehaviour
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        playerpower = Powertypes.NONE;
+        GetComponent<PlayerPowerup>().playerpower = Powertypes.NONE;
 
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
@@ -177,50 +157,7 @@ public class PlayerRespawn : MonoBehaviour
         //for now there is a out scene thing
 
     }
-    //
-    private void UsePowerup(Powertypes _powertype)
-    {
-        switch (_powertype)
-        {
-            case Powertypes.FAST:
-                UseSpeed();
-                break;
-            case Powertypes.BULLET:
-                UseBullet();
-                break;
-            case Powertypes.HEALTH:
-                UseHealth();
-                break;
-            default:
-                print("None");
-                break;
-        }
-
-    }
-    private void UseHealth()
-    {
-        GetComponent<CarHealth>().ReplenishHealth();
-    }
-    private void UseSpeed()
-    {
-        //Use speed booster
-    }
-    private void UseBullet()
-    {
-        //just for testing purposes
-        foreach (var car in cars)
-        {
-            if(car.gameObject.name != gameObject.name)
-            {
-                //car.gameObject.GetComponent<CarHealth>().DamageFromPowerUp();
-                GameObject bulletClone = (GameObject)Instantiate(ammo, gameObject.transform.position, gameObject.transform.rotation);
-                bulletClone.GetComponent<BulletTracking>().target = car.gameObject;
-                break;
-            }
-
-        }
-        
-    }
+    
 
     private void OnCollisionEnter(Collision other)
     {

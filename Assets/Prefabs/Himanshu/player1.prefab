@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 619277615}
   - component: {fileID: 619277620}
   - component: {fileID: 6491539607527308049}
+  - component: {fileID: 8358449815938587946}
   m_Layer: 0
   m_Name: player1
   m_TagString: Untagged
@@ -136,7 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_carTransform: {fileID: 8906117421554406103}
   m_ReadySetGo: {fileID: 0}
-  playerpower: 0
   m_subMenu: {fileID: 0}
 --- !u!114 &6491539607527308049
 MonoBehaviour:
@@ -182,6 +182,21 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 4
+--- !u!114 &8358449815938587946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906117421554406104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fefe98dc0b68546a3ccc6a6e449d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerpower: 0
+  ammo: {fileID: 3291183970609909552, guid: 1413dcd919ded024c9c10bcd2c7fbdac, type: 3}
+  PowerIcon: {fileID: 0}
 --- !u!1 &8906117421725680742
 GameObject:
   m_ObjectHideFlags: 0
