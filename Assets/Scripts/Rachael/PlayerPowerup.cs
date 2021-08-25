@@ -38,7 +38,7 @@ public class PlayerPowerup : MonoBehaviour
         }
     }
 
-
+    //checking on which power up and enabling it
     private void UsePowerup(Powertypes _powertype)
     {
         switch (_powertype)
@@ -58,14 +58,18 @@ public class PlayerPowerup : MonoBehaviour
         }
 
     }
+    //appling their health
     private void UseHealth()
     {
         GetComponent<CarHealth>().ReplenishHealth();
     }
+    //applying speed
     private void UseSpeed()
     {
-        //Use speed booster
+        GetComponent<PlayerMovement>().PowerUpBoost(100.0f);
+        
     }
+    //spawning the bullet
     private void UseBullet()
     {
         //just for testing purposes
