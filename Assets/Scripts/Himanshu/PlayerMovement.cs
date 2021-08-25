@@ -147,6 +147,15 @@ namespace Himanshu
 
         }
 
+
+        //Pass in any force value
+        public void PowerUpBoost(float _force)
+        {
+            m_rigidBody.AddForce(transform.forward * _force, ForceMode.Impulse);
+            
+            //Apply some sick post processing here
+        }
+
         private void CalculateHover()
         {
             Vector3 groundNormal;
