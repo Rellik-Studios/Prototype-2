@@ -19,7 +19,6 @@ public class BulletTracking : MonoBehaviour
         {
             transform.LookAt(target.transform);
             Vector3 direction = target.transform.position - transform.position;
-
             GetComponent<Rigidbody>().velocity = direction.normalized * bulletSpeed;
         }
         else

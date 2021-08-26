@@ -18,6 +18,7 @@ public class TrackCheckpoints : MonoBehaviour
     private int numberOfLaps;
 
     public int currentLap => m_laps;
+    public int currentIndex => m_nextIndexCheckpoint;
     
     private void Awake()
     {
@@ -69,7 +70,7 @@ public class TrackCheckpoints : MonoBehaviour
 
 
             //when the player goes to all the checkpoints
-            if(m_nextIndexCheckpoint == 0)
+            if(m_nextIndexCheckpoint == transform.childCount - 1)
             {
                 m_laps++;
                 if (m_laps != numberOfLaps)

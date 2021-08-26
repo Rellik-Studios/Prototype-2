@@ -222,8 +222,8 @@ namespace Himanshu
             
             if (m_playerInput.index == 1)
             {
-                Debug.Log(rotationTorque);
-                Debug.Log(m_playerInput.horizontal);
+  //              Debug.Log(rotationTorque);
+//                Debug.Log(m_playerInput.horizontal);
             }
 
             float sidewaysSpeed = Vector3.Dot(m_rigidBody.velocity, reverse? -transform.right: transform.right);

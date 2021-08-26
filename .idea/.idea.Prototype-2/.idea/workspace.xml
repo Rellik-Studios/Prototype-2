@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PositionChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PositionChecker.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +48,15 @@
       <option value="$PROJECT_DIR$/Assets/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CanvasScalar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/Powerups.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PositionChecker.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wsYtJuWJTCiqxf4aBOc7qi9rtk" />
@@ -103,7 +113,8 @@
       <workItem from="1629419330902" duration="13017000" />
       <workItem from="1629539637554" duration="4187000" />
       <workItem from="1629707767073" duration="21398000" />
-      <workItem from="1629857077936" duration="2107000" />
+      <workItem from="1629857077936" duration="2862000" />
+      <workItem from="1629950471195" duration="2388000" />
     </task>
     <servers />
   </component>
