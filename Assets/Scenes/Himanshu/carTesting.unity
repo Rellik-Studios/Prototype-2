@@ -689,7 +689,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -30.258263, y: 0, z: 123.96794, w: 0}
+  m_margin: {x: -77.9567, y: 0, z: 123.96794, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4019,7 +4019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -499.6, y: 0}
+  m_AnchoredPosition: {x: -499.59998, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839505613
@@ -5364,7 +5364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: gameMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: numberOfLaps
