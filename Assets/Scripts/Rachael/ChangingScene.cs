@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Himanshu;
 
 public class ChangingScene : MonoBehaviour
 {
@@ -26,14 +27,17 @@ public class ChangingScene : MonoBehaviour
     }
     public void TimerGamePlay()
     {
-        SceneManager.LoadScene(1);
+        gameSettings.Instance.gameMode = gameSettings.eGameModes.timeTrial;
+        SceneManager.LoadScene(2);
     }
     public void LocalGamePlay()
     {
+        gameSettings.Instance.gameMode = gameSettings.eGameModes.localMultiplayer;
         SceneManager.LoadScene(2);
     }
     public void AIGamePlay()
     {
-        SceneManager.LoadScene(3);
+        gameSettings.Instance.gameMode = gameSettings.eGameModes.AIMultiplayer;
+        SceneManager.LoadScene(2);
     }
 }
