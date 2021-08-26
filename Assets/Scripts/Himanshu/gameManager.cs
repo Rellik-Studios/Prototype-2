@@ -27,7 +27,10 @@ namespace Himanshu
 
             else
                 Destroy(this.gameObject);
-            
+
+            gameSettings.Instance.ChangeMode();
+
+
             if (gameSettings.Instance.gameMode == gameSettings.eGameModes.localMultiplayer)
             {
                 gameTimer = 0f;
