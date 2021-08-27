@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Himanshu;
+using JetBrains.Annotations;
 using UnityEngine.UI;
 
 public class ChangingScene : MonoBehaviour
 {
-    public Text laps;
+     public Text laps;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(laps !=null)
+        if(laps != null)
             laps.text = gameSettings.Instance.numberOfLaps.ToString();
     }
     public void MainScene()

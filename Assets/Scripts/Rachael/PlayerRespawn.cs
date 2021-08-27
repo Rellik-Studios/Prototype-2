@@ -22,7 +22,7 @@ public class PlayerRespawn : MonoBehaviour
        
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
-        GetComponent<PlayerPowerup>().playerpower = Powertypes.NONE;
+        GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
         //starting the race
         StartCoroutine(StartProcess());
 
@@ -62,7 +62,7 @@ public class PlayerRespawn : MonoBehaviour
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        GetComponent<PlayerPowerup>().playerpower = Powertypes.NONE;
+        GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
 
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
