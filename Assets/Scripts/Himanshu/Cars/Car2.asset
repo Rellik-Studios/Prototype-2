@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2292047ef2432c946a98dfa7e3b0dd, type: 3}
   m_Name: Car2
   m_EditorClassIdentifier: 
+  speed: 0.5
+  accelaration: 0.8
+  handling: 0.5
+  boostDur: 0.7
+  health: 0.5
+  car: {fileID: 0}
