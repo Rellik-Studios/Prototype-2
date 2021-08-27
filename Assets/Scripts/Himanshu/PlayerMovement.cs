@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Himanshu
 {
@@ -28,6 +30,7 @@ namespace Himanshu
         [SerializeField] private float handBrakeVelFactor = .80f;
         [SerializeField] private float angleOfRoll = 30f;
         [SerializeField] private eBoostType boostType;
+        [SerializeField] private Image boostImage;
         
         
         [Header("Hover")] 
@@ -50,6 +53,11 @@ namespace Himanshu
         private float drag = 1f;
         private bool isOnGround;
         private float m_maxBoostTimer;
+        private void boostSetter()
+        {
+
+            boostImage.fillAmount = boostTimer / m_maxBoostTimer;
+        }
 
         private void Start()
         {
@@ -58,6 +66,12 @@ namespace Himanshu
             if (vehicleBody == null)
             {
                 throw new Exception($"{name} does not have a vehicle Body object");
+            }
+
+            if (boostImage == null)
+            {
+                throw new Exception($"{name} does not have a boostImage Image");
+
             }
             if (TryGetComponent(out Rigidbody _rigidBody))
             {
@@ -143,6 +157,8 @@ namespace Himanshu
                 }
                     break;
             }
+            
+            boostSetter();
             
 
         }
