@@ -17,7 +17,8 @@ public class ChangingScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        laps.text = gameSettings.Instance.numberOfLaps.ToString();
+        if(laps !=null)
+            laps.text = gameSettings.Instance.numberOfLaps.ToString();
     }
     public void MainScene()
     {
@@ -30,6 +31,7 @@ public class ChangingScene : MonoBehaviour
     public void TimerGamePlay()
     {
         gameSettings.Instance.gameMode = gameSettings.eGameModes.timeTrial;
+        gameSettings.Instance.numberOfLaps = 1;
         SceneManager.LoadScene(2);
     }
     public void LocalGamePlay()

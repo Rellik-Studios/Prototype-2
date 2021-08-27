@@ -972,7 +972,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1385471971}
         m_TargetAssemblyTypeName: ChangingScene, Assembly-CSharp
-        m_MethodName: AIGamePlay
+        m_MethodName: LocalGamePlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3336,6 +3336,14 @@ PrefabInstance:
     - target: {fileID: 3837840193880502474, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: m_Name
       value: gameSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
+      propertyPath: maxLaps
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
+      propertyPath: minLaps
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: winTimers.Array.size
