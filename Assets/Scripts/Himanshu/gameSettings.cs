@@ -8,7 +8,23 @@ namespace Himanshu
     {
         private static gameSettings m_instance;
         public static gameSettings Instance => m_instance;
-        public int numberOfLaps;
+
+        private int m_numberOfLaps;
+        [SerializeField] private int maxLaps = 1;
+        [SerializeField] private int minLaps = 5;
+
+        public int numberOfLaps
+        {
+            get => m_numberOfLaps; 
+            
+            //Basically clamping from minLaps to maxLaps
+            set => m_numberOfLaps = value <= maxLaps? value >= minLaps? value: minLaps : maxLaps;
+        }
+
+        public int Modify
+        {
+            set => numberOfLaps += value;
+        }
         
 
         public enum eGameModes

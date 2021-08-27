@@ -47,8 +47,8 @@ public class CarHealth : MonoBehaviour
     //recover health
     public void ReplenishHealth()
     {
-        if(health > 0)
-            health = Mathf.Clamp(health+2, 1, MaxHealth);
+        if (health > 0)
+            health = Mathf.Clamp(health + 2, 1, MaxHealth);
         UpdateBarUI();
     }
     //damaging receieved from the player

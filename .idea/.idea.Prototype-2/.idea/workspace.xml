@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/New Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/New Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New 2D Renderer Data.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New 2D Renderer Data.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/Materials/boost.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/Materials/boost.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder/Box Volume Profile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder/Box Volume Profile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder/Global Volume Profile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder/Global Volume Profile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/boost.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/boost.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Transparent.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Transparent.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/player1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/player1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/carTesting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/390B9B31-902C-410D-9554-5218590D63B6/4f/da4ee7ff/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Himanshu/CanvasScalar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -39,15 +56,19 @@
       <option value="$PROJECT_DIR$/Assets/CanvasScalar.cs" />
       <option value="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Timer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CanvasScalar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/Powerups.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PositionChecker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wsYtJuWJTCiqxf4aBOc7qi9rtk" />
@@ -104,6 +125,8 @@
       <workItem from="1629419330902" duration="13017000" />
       <workItem from="1629539637554" duration="4187000" />
       <workItem from="1629707767073" duration="21398000" />
+      <workItem from="1629857077936" duration="2862000" />
+      <workItem from="1629950471195" duration="2388000" />
     </task>
     <servers />
   </component>
