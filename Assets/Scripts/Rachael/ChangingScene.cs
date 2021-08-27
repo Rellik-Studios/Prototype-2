@@ -12,7 +12,7 @@ public class ChangingScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class ChangingScene : MonoBehaviour
     public void TimerGamePlay()
     {
         gameSettings.Instance.gameMode = gameSettings.eGameModes.timeTrial;
+        gameSettings.Instance.numberOfLaps = 1;
         SceneManager.LoadScene(2);
     }
     public void LocalGamePlay()
