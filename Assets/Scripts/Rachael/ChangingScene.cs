@@ -12,7 +12,7 @@ public class ChangingScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public int scuffedModify
@@ -37,6 +37,7 @@ public class ChangingScene : MonoBehaviour
     public void TimerGamePlay()
     {
         gameSettings.Instance.gameMode = gameSettings.eGameModes.timeTrial;
+        gameSettings.Instance.numberOfLaps = 1;
         SceneManager.LoadScene(2);
     }
     public void LocalGamePlay()
