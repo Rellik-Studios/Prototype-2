@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 namespace Himanshu
 {
@@ -48,14 +50,17 @@ namespace Himanshu
             else
                 Destroy(this.gameObject);
 
-            ChangeMode();
 
 
 
+            m_numberOfLaps = 1;
 
 
 
         }
+
+
+
         public void ChangeMode()
         {
             switch (gameMode)

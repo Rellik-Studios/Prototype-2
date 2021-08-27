@@ -10,6 +10,7 @@ namespace Himanshu
         private static gameManager m_instance;
 
         public float gameTimer { get; private set; }
+        public float gameTimerP2 { get; private set; }
 
         public bool playing = false;
         
@@ -19,6 +20,10 @@ namespace Himanshu
             private set => m_instance = value;
         }
 
+        private void Awake()
+        {
+            gameSettings.Instance.ChangeMode();
+        }
 
         private IEnumerator Start()
         {
@@ -28,34 +33,38 @@ namespace Himanshu
             else
                 Destroy(this.gameObject);
 
-            gameSettings.Instance.ChangeMode();
 
 
             if (gameSettings.Instance.gameMode == gameSettings.eGameModes.localMultiplayer)
             {
                 gameTimer = 0f;
+                gameTimerP2 = 0f;
             }
             if (gameSettings.Instance.gameMode == gameSettings.eGameModes.timeTrial)
             {
                 gameTimer = 0f;
             }
             
+            
             yield return new WaitForSeconds(3f);
             playing = true;
-            
-           
-            
         }
 
         private void Update()
         {
-            if(playing)
+            if (playing)
+            {
+                gameTimerP2 += Time.deltaTime;
                 gameTimer += Time.deltaTime;
+            }
         }
 
-        public void ResetTimer()
+        public void ResetTimer(int index = 1)
         {
-            gameTimer = 0f;
+            if (index == 1)
+                gameTimer = 0f;
+            else
+                gameTimerP2 = 0f;
         }
     }
 }
