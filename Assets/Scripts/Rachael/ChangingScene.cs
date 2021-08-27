@@ -15,12 +15,17 @@ public class ChangingScene : MonoBehaviour
         
     }
 
+    public int scuffedModify
+    {
+        set => gameSettings.Instance.Modify = value;
+    }
     // Update is called once per frame
     void Update()
     {
         if(laps != null)
             laps.text = gameSettings.Instance.numberOfLaps.ToString();
     }
+    
     public void MainScene()
     {
         SceneManager.LoadScene(0);

@@ -2,43 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp/Appear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp/Appear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp/Dissappear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp/Dissappear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp/PowerUp.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animation/Himanshu/PowerUp/PowerUp.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/PowerUp.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/PowerUp.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Bullet.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Bullet.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Fast.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Fast.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Health.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/Health.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/None.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sprites/None.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/CarData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/CarData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PowerUpImage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PowerUpImage.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Player1MainMenu.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Player1MainMenu.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Player2MainMenu.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Player2MainMenu.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerDefault.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerDefault.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerFast.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerFast.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerSlow.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerSlow.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Selector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Selector.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/New Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder/Global Volume Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder/Global Volume Profile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/ChangingScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/ChangingScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/Powerups.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/Powerups.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/player1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/player1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
