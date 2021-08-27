@@ -8,6 +8,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private Transform m_carTransform;
     [SerializeField] private Text m_ReadySetGo;
+    [SerializeField] private Text m_Finished;
     private Vector3 position;
     private Quaternion rotation;
     private bool finished;
@@ -146,8 +147,8 @@ public class PlayerRespawn : MonoBehaviour
         //gameObject.GetComponent<PlayerRespawn>().enabled = false;
         //apply animation here
 
-        m_ReadySetGo.gameObject.SetActive(true);
-        m_ReadySetGo.text = "Finished!";
+        m_Finished.gameObject.SetActive(true);
+        m_Finished.text = "Finished!";
         yield return new WaitForSeconds(3);
         //gameObject.SetActive(false);
         finished = true;
