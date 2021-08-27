@@ -1,37 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Himanshu;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerPowerup : MonoBehaviour
 {
+    private Dictionary<Powertypes, Sprite> m_powerDictionary = new Dictionary<Powertypes, Sprite>();
     PlayerRespawn[] cars;
     private PlayerInput m_playerInput;
-    public Powertypes playerpower;
-    public GameObject ammo;
+    private Powertypes m_playerPower;
     public Image PowerIcon;
+
+    public Powertypes playerPower
+    {
+        get => m_playerPower;
+        set
+        {
+            m_playerPower = value;
+            if(m_powerDictionary.TryGetValue(value, out Sprite powerImage))
+                PowerIcon.sprite = powerImage;
+        }
+    }
+
+    public GameObject ammo;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        var powerups = Resources.LoadAll<PowerUpImage>("Sprites");
+
+        foreach (var powerup in powerups)
+        {
+            m_powerDictionary.Add(powerup.powerType, powerup.powerUpImage);
+        }
         m_playerInput = GetComponent<PlayerInput>();
-        playerpower = Powertypes.NONE;
+        playerPower = Powertypes.FAST;
         cars = GameObject.FindObjectsOfType<PlayerRespawn>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerpower != Powertypes.NONE)
+        if (playerPower != Powertypes.NONE)
         {
             if (m_playerInput.powerUp)
             {
-                Debug.Log("player used" + playerpower.ToString());
-                UsePowerup(playerpower);
-                playerpower = Powertypes.NONE;
+                Debug.Log("player used" + playerPower.ToString());
+                UsePowerup(playerPower);
+                playerPower = Powertypes.NONE;
                 if (PowerIcon != null)
                     PowerIcon.sprite = null;
-
+                
+                
 
 
             }

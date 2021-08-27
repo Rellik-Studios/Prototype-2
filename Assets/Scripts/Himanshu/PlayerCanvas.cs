@@ -10,8 +10,13 @@ namespace Himanshu
 
         public int position
         {
-            set => transform.Find("Position").gameObject.GetComponent<TMP_Text>().text = value.ToString();
+            set
+            {
+                
+                transform.Find("Position").gameObject.GetComponent<TMP_Text>().text = value.ToString();
+            }
         }
+
         void Start()
         {
             if (gameSettings.Instance.numberOfLaps > 1)
@@ -39,7 +44,7 @@ namespace Himanshu
         
             if(lapText.text == gameSettings.Instance.numberOfLaps.ToString() && lapText.text != "1")
                 transform.Find("FinalLap").GetComponent<Animator>().SetBool("Stuff", true);
-            var gameTimer = gameManager.Instance.gameTimer.ToString();
+            var gameTimer = name.Contains("1")? gameManager.Instance.gameTimer.ToString() : gameManager.Instance.gameTimer.ToString();
             var tmpText = transform.Find("Timer").GetComponent<TMP_Text>();
             tmpText.text = (gameTimer.Length > gameTimer.LastIndexOf('.') + 3) ? gameTimer.Remove(gameTimer.LastIndexOf('.') + 3) : gameTimer;
 

@@ -11,6 +11,8 @@ public enum Powertypes
 };
 public class Powerups : MonoBehaviour
 {
+    [SerializeField] private int defaultWaitTime = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,19 +30,31 @@ public class Powerups : MonoBehaviour
     {
         if (other.TryGetComponent<PlayerPowerup>(out PlayerPowerup _player))
         {
-            if(_player.playerpower == Powertypes.NONE)
+            if(_player.playerPower == Powertypes.NONE)
             {
-                _player.playerpower= RandomDraw();
+                _player.playerPower= RandomDraw();
+                StartCoroutine(Dissapear());
                 //Give them power up
 
             }
         }
     }
+
+    private IEnumerator Dissapear()
+    {
+        transform.parent.GetComponent<Animator>().SetBool("dissappear", true);
+        transform.parent.GetComponent<Animator>().SetBool("appear", false);
+
+        yield return new WaitForSeconds(defaultWaitTime);
+
+        transform.parent.GetComponent<Animator>().SetBool("dissappear", false);
+        transform.parent.GetComponent<Animator>().SetBool("appear", true);
+    }
+
     //randomly picking a power up
     Powertypes RandomDraw()
     {
-        
-        Powertypes power = (Powertypes)Random.Range(1, 3);
+        Powertypes power = (Powertypes)Random.Range(1, 4);
         return power;
     }
 }
