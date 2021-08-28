@@ -32,7 +32,13 @@ public class PlayerPowerup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_player = GameObject.FindGameObjectWithTag($"Player{index}");
+        if (GameObject.FindWithTag($"Player{index}"))
+            m_player = GameObject.FindGameObjectWithTag($"Player{index}");
+        else
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         var powerups = Resources.LoadAll<PowerUpImage>("Sprites");
 
         foreach (var powerup in powerups)

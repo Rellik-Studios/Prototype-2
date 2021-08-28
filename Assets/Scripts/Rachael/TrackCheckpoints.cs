@@ -26,8 +26,13 @@ public class TrackCheckpoints : MonoBehaviour
         Transform checkpointsTransform = transform;
 
         carTransformList = new List<Transform>();
-        
-        carTransformList.Add(GameObject.FindGameObjectWithTag($"Player{playerIndex}").transform);
+        if(GameObject.FindWithTag($"Player{playerIndex}"))
+            carTransformList.Add(GameObject.FindGameObjectWithTag($"Player{playerIndex}").transform);
+        else
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         m_checkpointList = new List<SingleCheckpoint>();
         foreach (Transform singleCheckpointTransform in checkpointsTransform)
         {

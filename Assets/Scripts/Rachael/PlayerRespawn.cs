@@ -24,7 +24,13 @@ public class PlayerRespawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_player = GameObject.FindGameObjectWithTag($"Player{index}");
+        if(GameObject.FindWithTag($"Player{index}"))
+            m_player = GameObject.FindGameObjectWithTag($"Player{index}");
+        else
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         m_carTransform = m_player.transform;
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
@@ -102,8 +108,11 @@ public class PlayerRespawn : MonoBehaviour
 
         foreach (PlayerRespawn car in cars)
         {
-            if (!car.finished)
-                return false;
+            if (car.gameObject.activeInHierarchy)
+            {
+                if (!car.finished)
+                    return false;
+            }
 
         }
         return true;
@@ -165,13 +174,6 @@ public class PlayerRespawn : MonoBehaviour
     }
     
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("DeadZone"))
-        {
-            RespawnCar();
-        }
-    }
 
 
 }
