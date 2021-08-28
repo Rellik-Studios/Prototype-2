@@ -13,9 +13,11 @@ public class CarHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         MaxHealth = health;
         if (healthBar != null)
-        {
+        { 
+            healthBar.maxValue = health;
             healthBar.value = health;
             fill.color = gradient.Evaluate(1.0f);
         }
