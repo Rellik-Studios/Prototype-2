@@ -13,7 +13,8 @@ public class PlayerPowerup : MonoBehaviour
     private PlayerInput m_playerInput;
     private Powertypes m_playerPower;
     public Image PowerIcon;
-
+    private GameObject m_player;
+    [SerializeField] private int index;
     public Powertypes playerPower
     {
         get => m_playerPower;
@@ -31,13 +32,14 @@ public class PlayerPowerup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_player = GameObject.FindGameObjectWithTag($"Player{index}");
         var powerups = Resources.LoadAll<PowerUpImage>("Sprites");
 
         foreach (var powerup in powerups)
         {
             m_powerDictionary.Add(powerup.powerType, powerup.powerUpImage);
         }
-        m_playerInput = GetComponent<PlayerInput>();
+        m_playerInput = m_player.GetComponent<PlayerInput>();
         playerPower = Powertypes.FAST;
         cars = GameObject.FindObjectsOfType<PlayerRespawn>();
     }
@@ -90,7 +92,7 @@ public class PlayerPowerup : MonoBehaviour
     //applying speed
     private void UseSpeed()
     {
-        GetComponent<PlayerMovement>().PowerUpBoost(100.0f);
+        m_player.GetComponent<PlayerMovement>().PowerUpBoost(100.0f);
         
     }
     //spawning the bullet

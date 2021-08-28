@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 1.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 1.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 2.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 2.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 3.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 3.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerDefault.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerDefault.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerFast.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerFast.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerSlow.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerSlow.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Himanshu/NewTrack3Thunder.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/CarData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/CarData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Cars/Car3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rine/UI/health_fill.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/UI/health_fill.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/SingleCheckpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/SingleCheckpoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,29 +44,30 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PIDController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/SingleCheckpoint.cs" />
       <option value="$PROJECT_DIR$/Assets/CanvasScalar.cs" />
       <option value="$PROJECT_DIR$/Assets/PlayerCanvasScaler.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Timer.cs" />
       <option value="$PROJECT_DIR$/Assets/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CanvasScalar.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PositionChecker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PowerUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/Powerups.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PowerUpImage.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/ChangingScene.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CarData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/SingleCheckpoint.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wsYtJuWJTCiqxf4aBOc7qi9rtk" />
@@ -166,13 +155,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs</url>
-          <line>35</line>
+          <line>37</line>
           <properties documentPath="D:\Repos\Prototype-2\Assets\Scripts\Rachael\PlayerPowerup.cs" initialLine="35" containingFunctionPresentation="method 'Start'">
             <startOffsets>
-              <option value="905" />
+              <option value="1048" />
             </startOffsets>
             <endOffsets>
-              <option value="938" />
+              <option value="1081" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
