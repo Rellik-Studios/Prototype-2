@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Himanshu
 {
@@ -10,6 +11,7 @@ namespace Himanshu
         public float handling;
         public float boostDur;
         public float health;
+        public string boostType;
 
         public GameObject car;
     }

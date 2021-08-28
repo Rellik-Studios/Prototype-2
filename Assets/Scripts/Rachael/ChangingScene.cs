@@ -34,6 +34,18 @@ public class ChangingScene : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void SetTimer()
+    {
+        gameSettings.Instance.gameMode = gameSettings.eGameModes.timeTrial;
+        gameSettings.Instance.numberOfLaps = 1;
+    }
+
+    public void SetLocal()
+    {
+        gameSettings.Instance.gameMode = gameSettings.eGameModes.localMultiplayer;
+    }
+    
     public void TimerGamePlay()
     {
         gameSettings.Instance.gameMode = gameSettings.eGameModes.timeTrial;

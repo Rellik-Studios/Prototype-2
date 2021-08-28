@@ -7,13 +7,14 @@ using UnityEngine;
 /// </summary>
 public class TrackCheckpoints : MonoBehaviour
 {
+    [SerializeField] private int playerIndex;
     //SINGLE
     private int m_nextIndexCheckpoint;
     private int m_laps;
     private List<SingleCheckpoint> m_checkpointList;
     [SerializeField] private GameObject warningText;
     //MULTIPLAYER
-    [SerializeField] private List<Transform> carTransformList;
+    private List<Transform> carTransformList;
     private List<int> m_nextIndexCheckpointList;
     private int numberOfLaps;
 
@@ -24,6 +25,14 @@ public class TrackCheckpoints : MonoBehaviour
     {
         Transform checkpointsTransform = transform;
 
+        carTransformList = new List<Transform>();
+        if(GameObject.FindWithTag($"Player{playerIndex}"))
+            carTransformList.Add(GameObject.FindGameObjectWithTag($"Player{playerIndex}").transform);
+        else
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         m_checkpointList = new List<SingleCheckpoint>();
         foreach (Transform singleCheckpointTransform in checkpointsTransform)
         {

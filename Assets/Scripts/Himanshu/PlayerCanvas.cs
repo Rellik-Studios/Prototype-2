@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -17,8 +18,14 @@ namespace Himanshu
             }
         }
 
-        void Start()
+        IEnumerator Start()
         {
+            var index = name.Contains("1") ? 1 : 2;
+
+            if(GameObject.FindWithTag($"Player{index}") != null)
+                GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag($"Player{index}").transform.Find("Main Camera").GetComponent<Camera>();
+            else 
+                gameObject.SetActive(false);
             if (gameSettings.Instance.numberOfLaps > 1)
                 transform.Find("TotalLaps").GetComponent<TMP_Text>().text = $"/{gameSettings.Instance.numberOfLaps}";
             else
@@ -26,6 +33,22 @@ namespace Himanshu
                 transform.Find("TotalLaps").gameObject.SetActive(false);
                 transform.Find("Laps").gameObject.SetActive(false);
             }
+
+            yield return new WaitForEndOfFrame();
+            
+            if (index == 1 && gameSettings.Instance.gameMode == gameSettings.eGameModes.timeTrial)
+            {
+            
+            //     transform.Find("TimerBorder").GetComponent<RectTransform>().localPosition = new Vector3(-198.88f,
+            //         transform.Find("TimerBorder").GetComponent<RectTransform>().localPosition.y,
+            //         transform.Find("TimerBorder").GetComponent<RectTransform>().localPosition.z);
+            //
+            //     transform.Find("LapBorder").GetComponent<RectTransform>().localPosition = new Vector3(-195.88f,
+            //         transform.Find("LapBorder").GetComponent<RectTransform>().localPosition.y,
+            //         transform.Find("LapBorder").GetComponent<RectTransform>().localPosition.z);
+            }
+
+
         }
 
         private void Update()

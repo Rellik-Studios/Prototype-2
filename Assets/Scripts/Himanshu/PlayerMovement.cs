@@ -105,7 +105,8 @@ namespace Himanshu
                         
                         float propulsion = boostFactor * m_playerInput.throttle;
                         //Debug.Log(m_playerInput.throttle);
-                        m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+                        if (speed < terminalVelocity * 1.5f) 
+                            m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
                     }
                     else
                     {
@@ -126,7 +127,8 @@ namespace Himanshu
                     {
                         boostTimer -= Time.deltaTime;
                         float propulsion = boostFactor;
-                        m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Impulse);
+                        if (speed < terminalVelocity * 1.5f)
+                            m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Impulse);
                     }
                     else
                     {
@@ -146,7 +148,8 @@ namespace Himanshu
                     {
                         boostTimer -= Time.deltaTime;
                         float propulsion = boostFactor;
-                        m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+                        if (speed < terminalVelocity * 1.5f)
+                            m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
                     }
                     else
                     {
@@ -167,7 +170,8 @@ namespace Himanshu
         //Pass in any force value
         public void PowerUpBoost(float _force)
         {
-            m_rigidBody.AddForce(transform.forward * _force, ForceMode.Impulse);
+            if (speed < terminalVelocity * 1.5f) 
+                m_rigidBody.AddForce(transform.forward * _force, ForceMode.Impulse);
             
             //Apply some sick post processing here
         }
