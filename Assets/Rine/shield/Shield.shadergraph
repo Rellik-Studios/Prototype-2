@@ -584,7 +584,7 @@
     },
     "m_Name": "Shield Colour",
     "m_DefaultReferenceName": "Color_4d2df60342404374bb1389d6e467e166",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "shieldColor",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

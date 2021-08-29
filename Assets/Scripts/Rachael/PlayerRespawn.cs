@@ -14,7 +14,7 @@ public class PlayerRespawn : MonoBehaviour
     private bool finished;
     PlayerRespawn[] cars;
 
-    private GameObject m_player;
+    public GameObject m_player { get; private set; }
 
     [SerializeField] private int index;
     

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CarHealth : MonoBehaviour
 {
-    [SerializeField] private int health = 5;
+    [SerializeField] public int health = 5;
     private int MaxHealth;
     public Slider healthBar;
     public Image fill;
@@ -26,6 +26,8 @@ public class CarHealth : MonoBehaviour
             healthBar.maxValue = health;
             healthBar.value = health;
             fill.color = gradient.Evaluate(1.0f);
+            var sphere = m_player.transform.Find("shield_sphere").Find("pSphere2");
+            sphere.GetComponent<Renderer>().material.SetColor("shieldColor", fill.color);
         }
     }
 
@@ -45,6 +47,8 @@ public class CarHealth : MonoBehaviour
         {
             healthBar.value = health;
             fill.color = gradient.Evaluate(healthBar.normalizedValue);
+            var sphere = m_player.transform.Find("shield_sphere").Find("pSphere2");
+            sphere.GetComponent<Renderer>().material.SetColor("shieldColor", fill.color);
         }
     }
     //Gets the health value

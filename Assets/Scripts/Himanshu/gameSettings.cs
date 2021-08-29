@@ -35,7 +35,9 @@ namespace Himanshu
             p1.GetComponent<PlayerInput>().index = 1;
             p1.GetComponent<PlayerManager>().playerIndex = 1;
             p1.transform.Find("Main Camera").GetComponent<Camera>().cullingMask = player1Cull;
+            GameObject.FindGameObjectWithTag("Player1_Manager").GetComponent<CarHealth>().health = p1Health;
 
+            
             if (gameMode == eGameModes.timeTrial)   return;
 
             var p2Pos = GameObject.FindGameObjectWithTag("Player2_Manager").transform.position;
@@ -44,7 +46,13 @@ namespace Himanshu
                 p2.GetComponent<PlayerInput>().index = 2;
                 p2.GetComponent<PlayerManager>().playerIndex = 2;
                 p2.transform.Find("Main Camera").GetComponent<Camera>().cullingMask = player2Cull;
+                GameObject.FindGameObjectWithTag("Player2_Manager").GetComponent<CarHealth>().health = p2Health;
         }
+
+        public int p2Health { get; set; }
+
+        public int p1Health { get; set; }
+        
 
         public int Modify
         {

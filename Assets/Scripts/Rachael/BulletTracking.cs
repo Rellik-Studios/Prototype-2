@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Himanshu;
 using UnityEngine;
 
 public class BulletTracking : MonoBehaviour
@@ -29,10 +30,10 @@ public class BulletTracking : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //checking when the bullet hits a enemy
-        if (other.GetComponent<CarHealth>() !=null && other.name == target.name)
+        if (other.name == target.name && other.GetComponent<PlayerInput>().index == target.GetComponent<PlayerInput>().index)
         {
             Debug.Log("Bullet hit");
-            other.GetComponent<CarHealth>().DamageFromPowerUp();
+            other.GetComponent<PlayerManager>().carHealth.DamageFromPowerUp();
             Destroy(gameObject);
 
         }

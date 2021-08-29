@@ -108,8 +108,8 @@ public class PlayerPowerup : MonoBehaviour
             if (car.gameObject.name != gameObject.name)
             {
                 //car.gameObject.GetComponent<CarHealth>().DamageFromPowerUp();
-                GameObject bulletClone = (GameObject)Instantiate(ammo, gameObject.transform.position, gameObject.transform.rotation);
-                bulletClone.GetComponent<BulletTracking>().target = car.gameObject;
+                GameObject bulletClone = (GameObject)Instantiate(ammo, m_player.transform.position, m_player.transform.rotation);
+                bulletClone.GetComponent<BulletTracking>().target = car.m_player.gameObject;
                 break;
             }
 
