@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Himanshu;
+using TMPro;
 using UnityEngine.UI;
 
 public class PlayerRespawn : MonoBehaviour
@@ -178,7 +179,22 @@ public class PlayerRespawn : MonoBehaviour
         finished = true;
 
         if (CheckAllCars())
+        {
             m_subMenu.SetActive(true);
+            if (gameSettings.Instance.gameMode == gameSettings.eGameModes.localMultiplayer)
+                m_subMenu.transform.Find("FinishText").GetComponent<TMP_Text>().text =
+                    index == 1 ? "RHS WON" : "LHS WON";
+            else if (gameManager.Instance.gameTimer < gameSettings.Instance.winTimers[0])
+                m_subMenu.transform.Find("FinishText").GetComponent<TMP_Text>().text = "You Finished Gold";
+            else if (gameManager.Instance.gameTimer < gameSettings.Instance.winTimers[1])
+                m_subMenu.transform.Find("FinishText").GetComponent<TMP_Text>().text = "You Finished Silver";
+            else if (gameManager.Instance.gameTimer < gameSettings.Instance.winTimers[2])
+                m_subMenu.transform.Find("FinishText").GetComponent<TMP_Text>().text = "You Finished Bronze";
+            else
+                m_subMenu.transform.Find("FinishText").GetComponent<TMP_Text>().text = "You Made It *Slow Claps*";
+
+        }
+        
         //for now there is a out scene thing
 
     }

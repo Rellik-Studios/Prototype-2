@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -32,6 +33,8 @@ namespace Himanshu
         [SerializeField] private float angleOfRoll = 30f;
         [SerializeField] private eBoostType boostType;
         [SerializeField] private List<Image> boostImage;
+        [SerializeField] private List<ParticleSystem> m_thruster;
+
         private GameObject m_boost;
         
         [Header("Hover")] 
@@ -54,12 +57,27 @@ namespace Himanshu
         private float drag = 1f;
         private bool isOnGround;
         private float m_maxBoostTimer;
+        private bool m_thrust;
+
         private void boostSetter()
         {
 
             foreach (var booster in boostImage)
             {
                 booster.fillAmount = boostTimer / m_maxBoostTimer;
+            }
+        }
+
+        private bool setThruster
+        {
+            get => m_thrust;
+            set
+            {
+                m_thrust = value;
+                if (value)
+                    m_thruster.ForEach(t => t.Play());
+                else
+                    m_thruster.ForEach(t => t.Stop());
             }
         }
 
@@ -279,6 +297,7 @@ namespace Himanshu
 
             if (m_playerInput.throttle == 0f)
             {
+                setThruster = false;
                 m_rigidBody.velocity *= slowingVelFactor;
             }
 
@@ -309,6 +328,7 @@ namespace Himanshu
             else
             {
                 float propulsion = driveForce * m_playerInput.throttle;
+                setThruster = propulsion > 0;
                 //Debug.Log(m_playerInput.throttle);
                 if(speed < terminalVelocity)
                     m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
