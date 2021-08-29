@@ -126,11 +126,17 @@ namespace Himanshu
             if (m_playerInput.powershotBoost && !m_selected)
             {
                 m_selected = true;
-                if(m_playerInput.index == 1)
+                if (m_playerInput.index == 1)
+                {
+                    gameSettings.Instance.p1Health = (int)(CarDatas[index].health * 5);
                     gameSettings.Instance.player1 = CarDatas[index].car;
+                }
 
                 else
+                {
+                    gameSettings.Instance.p2Health = (int)(CarDatas[index].health * 5);
                     gameSettings.Instance.player2 = CarDatas[index].car;
+                }
             }
 
             if (m_playerInput.powerUp)

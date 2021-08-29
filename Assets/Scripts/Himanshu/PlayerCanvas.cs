@@ -56,18 +56,19 @@ namespace Himanshu
 
             if (!gameManager.Instance.playing) return;
 
+            var index = name.Contains("1") ? 1 : 2;
             
             var lapText = transform.Find("Laps").GetComponent<TMP_Text>();
             if ((Checkpoints.currentLap + 1).ToString() != lapText.text)
             {
                 if(int.Parse(lapText.text) < gameSettings.Instance.numberOfLaps)
                     lapText.text = (Checkpoints.currentLap + 1).ToString();
-                gameManager.Instance.ResetTimer();
+                gameManager.Instance.ResetTimer(index);
             }
         
             if(lapText.text == gameSettings.Instance.numberOfLaps.ToString() && lapText.text != "1")
                 transform.Find("FinalLap").GetComponent<Animator>().SetBool("Stuff", true);
-            var gameTimer = name.Contains("1")? gameManager.Instance.gameTimer.ToString() : gameManager.Instance.gameTimer.ToString();
+            var gameTimer = name.Contains("1")? gameManager.Instance.gameTimer.ToString() : gameManager.Instance.gameTimerP2.ToString();
             var tmpText = transform.Find("Timer").GetComponent<TMP_Text>();
             tmpText.text = (gameTimer.Length > gameTimer.LastIndexOf('.') + 3) ? gameTimer.Remove(gameTimer.LastIndexOf('.') + 3) : gameTimer;
 

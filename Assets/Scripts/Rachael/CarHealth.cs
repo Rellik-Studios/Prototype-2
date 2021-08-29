@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CarHealth : MonoBehaviour
 {
-    [SerializeField] private int health = 5;
+    [SerializeField] public int health = 5;
     private int MaxHealth;
     public Slider healthBar;
     public Image fill;
