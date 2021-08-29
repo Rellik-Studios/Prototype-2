@@ -60,8 +60,6 @@ public class PlayerPowerup : MonoBehaviour
                 Debug.Log("player used" + playerPower.ToString());
                 UsePowerup(playerPower);
                 playerPower = Powertypes.NONE;
-                if (PowerIcon != null)
-                    PowerIcon.sprite = null;
                 
                 
 
