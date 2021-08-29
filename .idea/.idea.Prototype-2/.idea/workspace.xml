@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Extensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/Extensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Deets.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Deets.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/Variant 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerDefault.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Himanshu/playerDefault.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Rine/thruster/Thruster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/thruster/Thruster.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Jack/Material/Audience Head 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Jack/Material/Audience Head 3.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +67,17 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/TrackCheckpoints.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CanvasScalar.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/CarData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerCanvas.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerPowerup.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/Extensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/PlayerRespawn.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wsYtJuWJTCiqxf4aBOc7qi9rtk" />
@@ -132,7 +145,7 @@
       <workItem from="1629857077936" duration="2862000" />
       <workItem from="1629950471195" duration="2388000" />
       <workItem from="1630193971875" duration="4527000" />
-      <workItem from="1630231169248" duration="4341000" />
+      <workItem from="1630231169248" duration="8324000" />
     </task>
     <servers />
   </component>
