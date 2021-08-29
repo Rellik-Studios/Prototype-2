@@ -27,8 +27,12 @@ namespace Himanshu
         //Returns true if powerup button pressed
         public bool powerUp => m_powerUp;
 
-        public int index => playerIndex;
-        
+        public int index
+        {
+            get => playerIndex;
+            set => playerIndex = value;
+        }
+
         //Returns Horizontal if left stick is moved, zero if not
         public float horizontal => Mathf.Abs(m_movement) > 0.1f ? m_movement : 0;
         

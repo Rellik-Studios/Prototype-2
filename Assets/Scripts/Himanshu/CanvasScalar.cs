@@ -15,7 +15,7 @@ namespace Himanshu
             if (gameSettings.Instance.gameMode == gameSettings.eGameModes.timeTrial)
             {
                 var localPosition = transform.Find("MiniMapBG").gameObject.GetComponent<RectTransform>().localPosition;
-                transform.Find("MiniMapBG").gameObject.GetComponent<RectTransform>().localPosition = new Vector3(-720f, localPosition.y, 0f);
+                transform.Find("MiniMapBG").gameObject.GetComponent<RectTransform>().localPosition = new Vector3(720f, localPosition.y, 0f);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,6 +63,7 @@ namespace Himanshu
 
         [SerializeField] private GameObject cam;
         private bool m_moving = false;
+        private bool m_selected;
 
         public float movY
         {
@@ -85,13 +87,14 @@ namespace Himanshu
         {
 
             
-            if (!m_moving)
+            if (!m_moving && !m_selected)
             {
-                if (m_playerInput.horizontal > 0f)
+                int mul = m_playerInput.index == 1 ? 1 : -1;
+                if (m_playerInput.horizontal * mul > 0f)
                 {
                     StartCoroutine(eMove(index--, -1));
                 }
-                else if(m_playerInput.horizontal < 0)
+                else if(m_playerInput.horizontal * mul < 0)
                 {
                     StartCoroutine(eMove(index++, 1));
                 }
@@ -112,7 +115,37 @@ namespace Himanshu
             }
             cam.transform.position =
                 new Vector3(cam.transform.position.x, m_movY, cam.transform.position.z);
+
+
+            Select();
+            
         }
+
+        private void Select()
+        {
+            if (m_playerInput.powershotBoost && !m_selected)
+            {
+                m_selected = true;
+                if(m_playerInput.index == 1)
+                    gameSettings.Instance.player1 = CarDatas[index].car;
+
+                else
+                    gameSettings.Instance.player2 = CarDatas[index].car;
+            }
+
+            if (m_playerInput.powerUp)
+            {
+                m_selected = false;
+                if(m_playerInput.index == 1)
+                    gameSettings.Instance.player1 = null;
+
+                else
+                    gameSettings.Instance.player2 = null;
+            }
+            
+            
+        }
+
         void SetData(Transform _transform, string _name, float _data)
         {
             if (_transform.Find(_name).gameObject.TryGetComponent<Slider>(out Slider _slider))
@@ -132,6 +165,8 @@ namespace Himanshu
                 SetData(t, "SliderHandling", CarDatas[index].handling);
                 SetData(t, "SliderBoost", CarDatas[index].boostDur);
                 SetData(t, "SliderHealth", CarDatas[index].health);
+
+                t.Find("TextBoost").GetComponent<TMP_Text>().text = CarDatas[index].boostType;
 
             }
         }

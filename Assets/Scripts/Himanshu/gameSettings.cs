@@ -11,6 +11,9 @@ namespace Himanshu
         private static gameSettings m_instance;
         public static gameSettings Instance => m_instance;
 
+        public GameObject player1;
+        public GameObject player2;
+        
         private int m_numberOfLaps;
         [SerializeField] private int maxLaps = 1;
         [SerializeField] private int minLaps = 5;
@@ -21,6 +24,26 @@ namespace Himanshu
             
             //Basically clamping from minLaps to maxLaps
             set => m_numberOfLaps = value <= maxLaps? value >= minLaps? value: minLaps : maxLaps;
+        }
+
+        public void Spawn()
+        {
+            
+            var p1Pos = GameObject.FindGameObjectWithTag("Player1_Manager").transform.position;
+            var p1 = Instantiate(player1, p1Pos, Quaternion.identity);
+            p1.tag = "Player1";
+            p1.GetComponent<PlayerInput>().index = 1;
+            p1.GetComponent<PlayerManager>().playerIndex = 1;
+            p1.transform.Find("Main Camera").GetComponent<Camera>().cullingMask = player1Cull;
+
+            if (gameMode == eGameModes.timeTrial)   return;
+
+            var p2Pos = GameObject.FindGameObjectWithTag("Player2_Manager").transform.position;
+                var p2 = Instantiate(player2, p2Pos, Quaternion.identity);
+                p2.tag = "Player2";
+                p2.GetComponent<PlayerInput>().index = 2;
+                p2.GetComponent<PlayerManager>().playerIndex = 2;
+                p2.transform.Find("Main Camera").GetComponent<Camera>().cullingMask = player2Cull;
         }
 
         public int Modify
@@ -38,6 +61,8 @@ namespace Himanshu
 
         public eGameModes gameMode;
         public float[] winTimers;
+        [SerializeField] private LayerMask player2Cull;
+        [SerializeField] private LayerMask player1Cull;
 
         private void Awake()
         {
@@ -59,6 +84,23 @@ namespace Himanshu
 
         }
 
+        private void Update()
+        {
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("MainMenu 1"))
+            {
+                if(gameMode == eGameModes.timeTrial)
+                    if (player1 != null && Input.GetKeyDown(KeyCode.JoystickButton7))
+                    {
+                        SceneManager.LoadScene(2);
+                    }
+                
+                if(gameMode == eGameModes.localMultiplayer)
+                    if (player1 != null && player2 != null && Input.GetKeyDown(KeyCode.JoystickButton7))
+                    {
+                        SceneManager.LoadScene(2);
+                    }
+            }
+        }
 
 
         public void ChangeMode()
@@ -69,7 +111,8 @@ namespace Himanshu
                     {
                         foreach (var playerInput in GameObject.FindObjectsOfType<PlayerInput>())
                         {
-                            playerInput.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                            playerInput.transform.Find("Main Camera").GetComponent<Camera>().rect =
+                                new Rect(0.5f * (playerInput.index - 1), 0, 0.5f, 1);
                         }
 
                     }
