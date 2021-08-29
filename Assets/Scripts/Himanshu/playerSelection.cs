@@ -17,7 +17,7 @@ namespace Himanshu
         [SerializeField] private List<GameObject> deets;
         
         private float m_movY = 3f;
-        private float m_rotY = 0f;
+        private float m_rotY = 2f;
 
         private float m_x = 0f;
         private int m_index;
@@ -35,17 +35,17 @@ namespace Himanshu
         {
             if (position == 0 && dir == -1)
             {
-                cam.transform.position = new Vector3(cam.transform.position.x - 42f, cam.transform.position.y,
+                cam.transform.position = new Vector3(cam.transform.position.x - 57f, cam.transform.position.y,
                     cam.transform.position.z);
             }
 
             if (position == 2 && dir == 1)
             {
-                cam.transform.position = new Vector3(cam.transform.position.x + 42f, cam.transform.position.y,
+                cam.transform.position = new Vector3(cam.transform.position.x + 57f, cam.transform.position.y,
                     cam.transform.position.z);
             }
 
-            while (m_x < 14f)
+            while (m_x < 19f)
             {
                 m_moving = true;
                 m_x += Time.deltaTime * 5f;
@@ -64,12 +64,19 @@ namespace Himanshu
         [SerializeField] private GameObject cam;
         private bool m_moving = false;
         private bool m_selected;
+        public float min;
+        public float max;
 
         public float movY
         {
             get => m_movY;
-            set => m_movY = value > 3f ? value < 6f ? value : 6f : 3f;
+            set
+            {
+                m_movY = value > min ? value < max ? value : max : min; 
+                cam.transform.LookAt(cars[index].transform);
+            }
         }
+
         public float rotY
         {
             get => m_rotY;
