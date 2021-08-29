@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0030779003, g: 0.002183854, b: 0.0059124744, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031100605, g: 0.0021830967, b: 0.0058873678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3234,7 +3234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -122.7, y: -339}
+  m_AnchoredPosition: {x: -122.69998, y: -339}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &928720891
@@ -7257,7 +7257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 22.55, y: -105}
+  m_AnchoredPosition: {x: 22.549927, y: -105}
   m_SizeDelta: {x: 177.63, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023925541
@@ -7922,12 +7922,28 @@ PrefabInstance:
       value: gameSettings
       objectReference: {fileID: 0}
     - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: gameMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: numberOfLaps
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
+      propertyPath: player1Cull.m_Bits
+      value: 759
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
+      propertyPath: player2Cull.m_Bits
+      value: 503
       objectReference: {fileID: 0}
     - target: {fileID: 7997427124218902820, guid: 6339f0d831507fd4abd8b279048269e8, type: 3}
       propertyPath: winTimers.Array.size
