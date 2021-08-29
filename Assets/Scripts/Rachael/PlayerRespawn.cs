@@ -56,6 +56,7 @@ public class PlayerRespawn : MonoBehaviour
             //if health is 0 or negative then respawn
             if(GetComponent<CarHealth>().GetHealth() <=0)
             {
+                m_player.GetComponent<BoxCollider>().enabled = false;
                 RespawnCar();
             }
         }
@@ -71,15 +72,16 @@ public class PlayerRespawn : MonoBehaviour
 
     public void RespawnCar()
     {
-        m_player.transform.position = position;
-        m_player.transform.rotation = rotation;
+        GameObject explosion = Resources.Load<GameObject>("Exploding_Star");
+        Instantiate(explosion, m_player.transform.position, m_player.transform.rotation);
+
         m_player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
-
+        
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
         m_player.GetComponent<PlayerInput>().enabled = false;
-        m_player.GetComponent<BoxCollider>().enabled = false;
+
         if (gameObject.GetComponent<CarHealth>() != null)
         {
             GetComponent<CarHealth>().ResetHealth();
@@ -120,11 +122,18 @@ public class PlayerRespawn : MonoBehaviour
     //respawn process
     private IEnumerator RespawningProcess(float waitTime)
     {
-        //apply animation  for car explosion here
 
-        yield return new WaitForSeconds(waitTime);
-        m_player.GetComponent<PlayerInput>().enabled = true;
-        m_player.GetComponent<BoxCollider>().enabled = true;
+        //apply animation  for car explosion here
+        GameObject explosion = Resources.Load<GameObject>("Exploding_Star");
+        yield return new WaitForSeconds(explosion.GetComponent<ParticleSystem>().main.duration);
+
+        m_player.transform.position = position;
+        m_player.transform.rotation = rotation;
+        if (!GetStatus())
+        {
+            m_player.GetComponent<PlayerInput>().enabled = true;
+            m_player.GetComponent<BoxCollider>().enabled = true;
+        }
         //gameObject.GetComponent<PlayerMovement>().enabled = true;
         print("Now you can move");
 
@@ -164,6 +173,7 @@ public class PlayerRespawn : MonoBehaviour
         m_Finished.gameObject.SetActive(true);
         m_Finished.text = "Finished!";
         yield return new WaitForSeconds(3);
+
         //gameObject.SetActive(false);
         finished = true;
 
