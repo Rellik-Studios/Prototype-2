@@ -71,11 +71,14 @@ public class PlayerRespawn : MonoBehaviour
 
     public void RespawnCar()
     {
+        GameObject explosion = Resources.Load<GameObject>("Exploding_Star");
+        Instantiate(explosion, m_player.transform.position, m_player.transform.rotation);
+
         m_player.transform.position = position;
         m_player.transform.rotation = rotation;
         m_player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
-
+        
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
         m_player.GetComponent<PlayerInput>().enabled = false;
@@ -123,8 +126,12 @@ public class PlayerRespawn : MonoBehaviour
         //apply animation  for car explosion here
 
         yield return new WaitForSeconds(waitTime);
-        m_player.GetComponent<PlayerInput>().enabled = true;
-        m_player.GetComponent<BoxCollider>().enabled = true;
+
+        if (!GetStatus())
+        {
+            m_player.GetComponent<PlayerInput>().enabled = true;
+            m_player.GetComponent<BoxCollider>().enabled = true;
+        }
         //gameObject.GetComponent<PlayerMovement>().enabled = true;
         print("Now you can move");
 
