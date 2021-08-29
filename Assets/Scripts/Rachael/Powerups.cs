@@ -23,7 +23,10 @@ public class Powerups : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(gameSettings.Instance.gameMode == gameSettings.eGameModes.timeTrial)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //when the player collides with the powerup box
