@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Himanshu;
 using UnityEngine;
 public enum Powertypes
 {
@@ -22,17 +23,20 @@ public class Powerups : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(gameSettings.Instance.gameMode == gameSettings.eGameModes.timeTrial)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //when the player collides with the powerup box
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerPowerup>(out PlayerPowerup _player))
+        if (other.TryGetComponent<PlayerManager>(out PlayerManager _player))
         {
-            if(_player.playerPower == Powertypes.NONE)
+            if(_player.playerPowerup.playerPower == Powertypes.NONE)
             {
-                _player.playerPower= RandomDraw();
+                _player.playerPowerup.playerPower= RandomDraw();
                 StartCoroutine(Dissapear());
                 //Give them power up
 

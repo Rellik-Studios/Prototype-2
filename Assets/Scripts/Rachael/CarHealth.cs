@@ -10,9 +10,15 @@ public class CarHealth : MonoBehaviour
     public Slider healthBar;
     public Image fill;
     public Gradient gradient;
+
+    private GameObject m_player;
+
+    [SerializeField] private int index;
     // Start is called before the first frame update
     void Start()
     {
+        
+        m_player = GameObject.FindGameObjectWithTag($"Player{index}");
         
         MaxHealth = health;
         if (healthBar != null)

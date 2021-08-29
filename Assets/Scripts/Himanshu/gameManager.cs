@@ -22,6 +22,7 @@ namespace Himanshu
 
         private void Awake()
         {
+            gameSettings.Instance.Spawn();
             gameSettings.Instance.ChangeMode();
         }
 

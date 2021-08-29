@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/Rachael/MainMenu.unity
-    guid: 2e0dde2daa2b3074da944bed91b7109a
-  - enabled: 0
-    path: Assets/Scenes/Rachael/Track.unity
-    guid: 2e8f1d8aa3768b247aeea7c4363dfdd4
+    path: Assets/Scenes/Rachael/MainMenu 1.unity
+    guid: 99954b807a155c14fb749f77e51f6897
   - enabled: 1
     path: Assets/Scenes/Himanshu/carTesting.unity
     guid: bbee965a1a7b0a54a9fe2aaee7ceb2a9

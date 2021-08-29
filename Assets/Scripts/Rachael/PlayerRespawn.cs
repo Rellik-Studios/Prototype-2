@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    [SerializeField] private Transform m_carTransform;
+    private Transform m_carTransform;
     [SerializeField] private Text m_ReadySetGo;
     [SerializeField] private Text m_Finished;
     private Vector3 position;
@@ -14,13 +14,24 @@ public class PlayerRespawn : MonoBehaviour
     private bool finished;
     PlayerRespawn[] cars;
 
+    private GameObject m_player;
+
+    [SerializeField] private int index;
+    
     //for now there is the sceneManager
     [SerializeField] private GameObject m_subMenu;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        if(GameObject.FindWithTag($"Player{index}"))
+            m_player = GameObject.FindGameObjectWithTag($"Player{index}");
+        else
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        m_carTransform = m_player.transform;
         position = m_carTransform.position;
         rotation = m_carTransform.rotation;
         GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
@@ -60,15 +71,18 @@ public class PlayerRespawn : MonoBehaviour
 
     public void RespawnCar()
     {
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
+        GameObject explosion = Resources.Load<GameObject>("Exploding_Star");
+        Instantiate(explosion, m_player.transform.position, m_player.transform.rotation);
 
+        m_player.transform.position = position;
+        m_player.transform.rotation = rotation;
+        m_player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
+        
         //respawning processing
         StartCoroutine(RespawningProcess(3.0f));
-        gameObject.GetComponent<PlayerInput>().enabled = false;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+        m_player.GetComponent<PlayerInput>().enabled = false;
+        m_player.GetComponent<BoxCollider>().enabled = false;
         if (gameObject.GetComponent<CarHealth>() != null)
         {
             GetComponent<CarHealth>().ResetHealth();
@@ -97,8 +111,11 @@ public class PlayerRespawn : MonoBehaviour
 
         foreach (PlayerRespawn car in cars)
         {
-            if (!car.finished)
-                return false;
+            if (car.gameObject.activeInHierarchy)
+            {
+                if (!car.finished)
+                    return false;
+            }
 
         }
         return true;
@@ -109,8 +126,12 @@ public class PlayerRespawn : MonoBehaviour
         //apply animation  for car explosion here
 
         yield return new WaitForSeconds(waitTime);
-        gameObject.GetComponent<PlayerInput>().enabled = true;
-        gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        if (!GetStatus())
+        {
+            m_player.GetComponent<PlayerInput>().enabled = true;
+            m_player.GetComponent<BoxCollider>().enabled = true;
+        }
         //gameObject.GetComponent<PlayerMovement>().enabled = true;
         print("Now you can move");
 
@@ -120,7 +141,7 @@ public class PlayerRespawn : MonoBehaviour
     private IEnumerator StartProcess()
     {
 
-        gameObject.GetComponent<PlayerInput>().enabled = false;
+        m_player.GetComponent<PlayerInput>().enabled = false;
         //apply animation here
         
         print("3");
@@ -134,7 +155,7 @@ public class PlayerRespawn : MonoBehaviour
         yield return new WaitForSeconds(1);
         print("GO");
         m_ReadySetGo.text = "GO!";
-        gameObject.GetComponent<PlayerInput>().enabled = true;
+        m_player.GetComponent<PlayerInput>().enabled = true;
         yield return new WaitForSeconds(1);
         m_ReadySetGo.gameObject.SetActive(false);
     }
@@ -142,8 +163,8 @@ public class PlayerRespawn : MonoBehaviour
     private IEnumerator FinishProcedure()
     {
 
-        gameObject.GetComponent<PlayerInput>().Reset();
-        gameObject.GetComponent<PlayerInput>().enabled = false;
+        m_player.GetComponent<PlayerInput>().Reset();
+        m_player.GetComponent<PlayerInput>().enabled = false;
         //gameObject.GetComponent<PlayerRespawn>().enabled = false;
         //apply animation here
 
@@ -160,13 +181,6 @@ public class PlayerRespawn : MonoBehaviour
     }
     
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("DeadZone"))
-        {
-            RespawnCar();
-        }
-    }
 
 
 }

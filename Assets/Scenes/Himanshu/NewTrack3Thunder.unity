@@ -1922,9 +1922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52814c0253e28094c9ca54e51ebc574a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
   warningText: {fileID: 210851544}
-  carTransformList:
-  - {fileID: 16828075}
 --- !u!1 &891923512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,9 +2686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52814c0253e28094c9ca54e51ebc574a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
   warningText: {fileID: 210851544}
-  carTransformList:
-  - {fileID: 154570448}
 --- !u!4 &1105659109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8845158512039396398, guid: 8ab70c7f38b22b748bdc37ca17fad1cc, type: 3}
@@ -5155,6 +5153,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6178703190512374253, guid: 6b4b9be78ab83164895dd74697473ddc, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178703190512374253, guid: 6b4b9be78ab83164895dd74697473ddc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178703190512374253, guid: 6b4b9be78ab83164895dd74697473ddc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178703190512374253, guid: 6b4b9be78ab83164895dd74697473ddc, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6178703190512374253, guid: 6b4b9be78ab83164895dd74697473ddc, type: 3}

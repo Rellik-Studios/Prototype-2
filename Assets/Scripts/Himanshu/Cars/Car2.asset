@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Car2
   m_EditorClassIdentifier: 
   speed: 0.5
-  accelaration: 0.8
-  handling: 0.5
+  accelaration: 0.4
+  handling: 0.8
   boostDur: 0.7
-  health: 0.5
-  car: {fileID: 0}
+  health: 0.9
+  boostType: PowerShot
+  car: {fileID: 6923277189190468327, guid: b0e8d4b5673e9724584a2f723ff93d1a, type: 3}

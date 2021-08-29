@@ -17,4 +17,5 @@ MonoBehaviour:
   handling: 0.6
   boostDur: 0.5
   health: 0.8
-  car: {fileID: 0}
+  boostType: SpeedShot
+  car: {fileID: 7150794868953709210, guid: 033b8ca2207598a4fbb0e34f1fbca778, type: 3}
