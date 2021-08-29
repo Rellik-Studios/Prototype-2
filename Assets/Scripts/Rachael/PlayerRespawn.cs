@@ -123,8 +123,12 @@ public class PlayerRespawn : MonoBehaviour
         //apply animation  for car explosion here
 
         yield return new WaitForSeconds(waitTime);
-        m_player.GetComponent<PlayerInput>().enabled = true;
-        m_player.GetComponent<BoxCollider>().enabled = true;
+
+        if (!GetStatus())
+        {
+            m_player.GetComponent<PlayerInput>().enabled = true;
+            m_player.GetComponent<BoxCollider>().enabled = true;
+        }
         //gameObject.GetComponent<PlayerMovement>().enabled = true;
         print("Now you can move");
 
