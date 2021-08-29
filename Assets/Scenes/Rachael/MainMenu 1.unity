@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031100605, g: 0.0021830967, b: 0.0058873678, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2391,7 +2391,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ee322a66529e79e43a5c0a886db5e0db, type: 3}
+    m_Font: {fileID: 12800000, guid: 5d650b9bb15b0b148ae44d338113e030, type: 3}
     m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
@@ -2499,7 +2499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &649421071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4806,7 +4806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1215733790
 MonoBehaviour:
   m_ObjectHideFlags: 0
