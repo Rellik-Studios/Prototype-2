@@ -33,6 +33,7 @@ namespace Himanshu
         {
             if (other.gameObject.CompareTag("DeadZone"))
             {
+                
                 playerRespawn.RespawnCar();
             }
         }
