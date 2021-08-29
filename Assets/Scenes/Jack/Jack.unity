@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000017873093, g: 0.000000030777375, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18008697, g: 0.22547588, b: 0.30680007, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ddf696ceb97296548bc9c44c7acb6671, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddf696ceb97296548bc9c44c7acb6671, type: 3}
@@ -290,13 +290,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175839699}
-  m_LocalRotation: {x: 0.10126786, y: -0.6146195, z: -0.7167168, w: 0.31353596}
+  m_LocalRotation: {x: 0.6326088, y: -0.12090146, z: -0.35177323, w: 0.67929715}
   m_LocalPosition: {x: 2.53, y: 9.03, z: -4.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: -54.837, y: -67.113, z: -94.769}
+  m_LocalEulerAnglesHint: {x: 50.751, y: -74.378, z: -94.34}
 --- !u!1001 &209806644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17d11c7576935e84bacdd718e37e788e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d11c7576935e84bacdd718e37e788e, type: 3}
@@ -390,7 +390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &418475313
 Light:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &557534511
 Light:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ee4adebd19b65b04e8a0fc5e1c7fd31f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee4adebd19b65b04e8a0fc5e1c7fd31f, type: 3}
@@ -876,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25cc73744220d624fb042b1516cb2fea, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25cc73744220d624fb042b1516cb2fea, type: 3}
@@ -938,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9189b5889483ebb43a30952ced653d0a, type: 3}
       propertyPath: m_Name
       value: Track_Proto
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9189b5889483ebb43a30952ced653d0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9189b5889483ebb43a30952ced653d0a, type: 3}
@@ -1002,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9cea3d206f3b07540b505f17f5653cb4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cea3d206f3b07540b505f17f5653cb4, type: 3}
@@ -1199,7 +1203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 013cd7be74f6cc647a3a9d03f812a446, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 013cd7be74f6cc647a3a9d03f812a446, type: 3}
