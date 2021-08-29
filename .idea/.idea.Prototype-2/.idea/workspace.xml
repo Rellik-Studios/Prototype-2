@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7ab63c65-e1ba-472b-94d4-520663caa5e6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototype-2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rine/shield/Shield.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/shield/Shield.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rine/shield/Shield.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rine/shield/Shield.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/MainMenu 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Rachael/NewTrack3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +63,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/BulletTracking.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/gameSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/PlayerManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Rachael/CarHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wsYtJuWJTCiqxf4aBOc7qi9rtk" />
@@ -138,7 +132,7 @@
       <workItem from="1629857077936" duration="2862000" />
       <workItem from="1629950471195" duration="2388000" />
       <workItem from="1630193971875" duration="4527000" />
-      <workItem from="1630231169248" duration="1877000" />
+      <workItem from="1630231169248" duration="4341000" />
     </task>
     <servers />
   </component>
@@ -181,13 +175,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Himanshu/playerSelection.cs</url>
-          <line>136</line>
+          <line>143</line>
           <properties documentPath="D:\Repos\Prototype-2\Assets\Scripts\Himanshu\playerSelection.cs" initialLine="136" containingFunctionPresentation="method 'Select'">
             <startOffsets>
-              <option value="4076" />
+              <option value="4236" />
             </startOffsets>
             <endOffsets>
-              <option value="4143" />
+              <option value="4303" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
