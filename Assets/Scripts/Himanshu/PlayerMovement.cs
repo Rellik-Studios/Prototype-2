@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -30,8 +32,10 @@ namespace Himanshu
         [SerializeField] private float handBrakeVelFactor = .80f;
         [SerializeField] private float angleOfRoll = 30f;
         [SerializeField] private eBoostType boostType;
-        [SerializeField] private Image boostImage;
-        
+        [SerializeField] private List<Image> boostImage;
+        [SerializeField] private List<ParticleSystem> m_thruster;
+
+        private GameObject m_boost;
         
         [Header("Hover")] 
         [SerializeField] private float hoverHeight = 1.5f;
@@ -53,14 +57,33 @@ namespace Himanshu
         private float drag = 1f;
         private bool isOnGround;
         private float m_maxBoostTimer;
+        private bool m_thrust;
+
         private void boostSetter()
         {
 
-            boostImage.fillAmount = boostTimer / m_maxBoostTimer;
+            foreach (var booster in boostImage)
+            {
+                booster.fillAmount = boostTimer / m_maxBoostTimer;
+            }
+        }
+
+        private bool setThruster
+        {
+            get => m_thrust;
+            set
+            {
+                m_thrust = value;
+                if (value)
+                    m_thruster.ForEach(t => t.Play());
+                else
+                    m_thruster.ForEach(t => t.Stop());
+            }
         }
 
         private void Start()
         {
+            m_boost = transform.Find("GFx").Find("Boost").gameObject;
             m_maxBoostTimer = boostTimer;
 
             if (vehicleBody == null)
@@ -102,6 +125,8 @@ namespace Himanshu
                     if (m_playerInput.defaultBoost && m_canBoost && boostTimer > 0f)
                     {
                         boostTimer -= Time.deltaTime;
+
+                        m_boost.SetActive(false);
                         
                         float propulsion = boostFactor * m_playerInput.throttle;
                         //Debug.Log(m_playerInput.throttle);
@@ -110,9 +135,13 @@ namespace Himanshu
                     }
                     else
                     {
-                        if(boostTimer < m_maxBoostTimer)
+                        if (boostTimer < m_maxBoostTimer)
+                        {
+                            m_boost.SetActive(false);
                             boostTimer += Time.deltaTime * boostRegenFactor;
-
+                        }
+                        else
+                            m_boost.SetActive(true);   
                         m_canBoost = boostTimer > 1f && !m_playerInput.defaultBoost;
                     }                    
                 }
@@ -126,6 +155,8 @@ namespace Himanshu
                     if (m_canBoost && boostTimer > 0f)
                     {
                         boostTimer -= Time.deltaTime;
+                        m_boost.SetActive(false);
+
                         float propulsion = boostFactor;
                         if (speed < terminalVelocity * 1.5f)
                             m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Impulse);
@@ -133,8 +164,13 @@ namespace Himanshu
                     else
                     {
                         m_canBoost = false;
-                        if(boostTimer < m_maxBoostTimer)
+                        if (boostTimer < m_maxBoostTimer)
+                        {
+                            m_boost.SetActive(false);
                             boostTimer += Time.deltaTime * boostRegenFactor;
+                        }
+                        else
+                            m_boost.SetActive(true);
                     }
                 }
                     break;
@@ -147,6 +183,7 @@ namespace Himanshu
                     if (m_canBoost && boostTimer > 0f)
                     {
                         boostTimer -= Time.deltaTime;
+                        m_boost.SetActive(false);
                         float propulsion = boostFactor;
                         if (speed < terminalVelocity * 1.5f)
                             m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
@@ -155,7 +192,13 @@ namespace Himanshu
                     {
                         m_canBoost = false;
                         if (boostTimer < m_maxBoostTimer)
+                        {
+                            m_boost.SetActive(false);
                             boostTimer += Time.deltaTime * boostRegenFactor;
+                        }
+                        else
+                            m_boost.SetActive(true);
+                        
                     }
                 }
                     break;
@@ -254,6 +297,7 @@ namespace Himanshu
 
             if (m_playerInput.throttle == 0f)
             {
+                setThruster = false;
                 m_rigidBody.velocity *= slowingVelFactor;
             }
 
@@ -284,6 +328,7 @@ namespace Himanshu
             else
             {
                 float propulsion = driveForce * m_playerInput.throttle;
+                setThruster = propulsion > 0;
                 //Debug.Log(m_playerInput.throttle);
                 if(speed < terminalVelocity)
                     m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
