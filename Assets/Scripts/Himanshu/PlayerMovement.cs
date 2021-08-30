@@ -51,7 +51,8 @@ namespace Himanshu
         [SerializeField] private float terminalVelocity = 100f;
         [SerializeField] private float hoverGravity = 20f;
         [SerializeField] private float fallGravity = 80f;
-        
+
+        private AudioSource m_audioSource;
         private PlayerInput m_playerInput;
         private Rigidbody m_rigidBody;
         private float drag = 1f;
@@ -83,6 +84,7 @@ namespace Himanshu
 
         private void Start()
         {
+            m_audioSource = GetComponent<AudioSource>();
             m_boost = transform.Find("GFx").Find("Boost").gameObject;
             m_maxBoostTimer = boostTimer;
 
@@ -299,6 +301,7 @@ namespace Himanshu
             {
                 setThruster = false;
                 m_rigidBody.velocity *= slowingVelFactor;
+                m_audioSource.Stop();
             }
 
             if (!isOnGround) return;
@@ -330,8 +333,12 @@ namespace Himanshu
                 float propulsion = driveForce * m_playerInput.throttle;
                 setThruster = propulsion > 0;
                 //Debug.Log(m_playerInput.throttle);
-                if(speed < terminalVelocity)
+                if (speed < terminalVelocity)
+                {
+                    if(propulsion > 0)
+                        m_audioSource.Play();
                     m_rigidBody.AddForce(transform.forward * propulsion, ForceMode.Acceleration);
+                }
 
             }
         }

@@ -75,7 +75,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         GameObject explosion = Resources.Load<GameObject>("Exploding_Star");
         Instantiate(explosion, m_player.transform.position, m_player.transform.rotation);
-
+        audioManager.Instance.PlayClip("explosion");
         m_player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         GetComponent<PlayerPowerup>().playerPower = Powertypes.NONE;
         
@@ -130,6 +130,8 @@ public class PlayerRespawn : MonoBehaviour
 
         m_player.transform.position = position;
         m_player.transform.rotation = rotation;
+
+        yield return new WaitForSeconds(2f);
         if (!GetStatus())
         {
             m_player.GetComponent<PlayerInput>().enabled = true;

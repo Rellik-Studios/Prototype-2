@@ -88,7 +88,10 @@ public class TrackCheckpoints : MonoBehaviour
 
                 else
                 {
-                    gameManager.Instance.playing = false;
+                    if(playerIndex == 1)
+                        gameManager.Instance.playing = false;
+                    else 
+                        gameManager.Instance.playingP2 = false;
                     _player.FinishCar();
                 }
                     

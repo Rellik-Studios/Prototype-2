@@ -57,6 +57,8 @@ namespace Himanshu
             SetDeets();
             m_moving = false;
             m_x = 0f;
+            
+            cam.transform.LookAt(cars[index].transform);
         }
 
         public bool active { get; set; }
@@ -125,7 +127,6 @@ namespace Himanshu
 
 
             Select();
-            
         }
 
         private void Select()

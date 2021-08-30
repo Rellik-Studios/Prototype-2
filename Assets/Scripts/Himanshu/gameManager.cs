@@ -13,6 +13,7 @@ namespace Himanshu
         public float gameTimerP2 { get; private set; }
 
         public bool playing = false;
+        public bool playingP2 = false;
         
         public static gameManager Instance
         {
@@ -55,8 +56,12 @@ namespace Himanshu
         {
             if (playing)
             {
-                gameTimerP2 += Time.deltaTime;
                 gameTimer += Time.deltaTime;
+            }
+
+            if (playingP2)
+            {
+                gameTimerP2 += Time.deltaTime;
             }
         }
 

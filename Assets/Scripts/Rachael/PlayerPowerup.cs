@@ -107,6 +107,7 @@ public class PlayerPowerup : MonoBehaviour
         {
             if (car.gameObject.name != gameObject.name)
             {
+                audioManager.Instance.PlayClip("lasershoot");
                 //car.gameObject.GetComponent<CarHealth>().DamageFromPowerUp();
                 GameObject bulletClone = (GameObject)Instantiate(ammo, m_player.transform.position, m_player.transform.rotation);
                 bulletClone.GetComponent<BulletTracking>().target = car.m_player.gameObject;
