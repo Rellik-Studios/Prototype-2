@@ -46,11 +46,13 @@ public class Powerups : MonoBehaviour
 
     private IEnumerator Dissapear()
     {
-        transform.parent.GetComponent<Animator>().SetBool("dissappear", true);
-        transform.parent.GetComponent<Animator>().SetBool("appear", false);
+        transform.parent.parent.GetComponent<Animator>().SetBool("dissappear", true);
+        transform.parent.parent.GetComponent<Animator>().SetBool("appear", false);
+        transform.parent.GetComponent<Animator>().SetBool("rotate", false);
 
         yield return new WaitForSeconds(defaultWaitTime);
 
+        transform.parent.GetComponent<Animator>().SetBool("rotate", true);
         transform.parent.GetComponent<Animator>().SetBool("dissappear", false);
         transform.parent.GetComponent<Animator>().SetBool("appear", true);
     }

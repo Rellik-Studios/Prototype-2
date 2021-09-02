@@ -50,6 +50,7 @@ namespace Himanshu
             
             yield return new WaitForSeconds(3f);
             playing = true;
+            playingP2 = true;
         }
 
         private void Update()
